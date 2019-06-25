@@ -130,9 +130,22 @@ const init = () => {
 
     const handleOrientation = (event) => {
         console.log('orichange')
-        console.log(event.beta / 100)
-        camera.rotation.x =  (event.beta - 90) / 500
-        camera.rotation.y =  event.alpha / 500
+        console.log((event.beta - 90) / 100)
+        console.log(event.alpha / 100)
+        camera.rotation.x =  (event.beta - 90) / 100
+        camera.rotation.y =  event.alpha / 100
+        if(camera.rotation.x > 0.5){
+            camera.rotation.x = 0.5
+        }
+        if(camera.rotation.x < -0.5){
+            camera.rotation.x = -0.5
+        }
+        if(camera.rotation.y > 0.5){
+            camera.rotation.x = 0.5
+        }
+        if(camera.rotation.y < -0.5){
+            camera.rotation.x = -0.5
+        }
     }
 
     window.addEventListener('deviceorientation', handleOrientation, false);
