@@ -129,12 +129,12 @@ const init = () => {
     }
 
     const handleOrientation = (event) => {
-        camera.rotation.x =  event.alpha / 20
-        camera.rotation.y = - event.beta/ 20
         console.log('orichange')
+        camera.rotation.x =  - event.beta / 1000
+        camera.rotation.y =  event.alpha/ 1000
     }
 
-    document.addEventListener("deviceorientation", handleOrientation, true);
+    window.addEventListener('deviceorientation', handleOrientation, false);
     document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     document.addEventListener("touchstart", touchStart, { passive: false });
     document.addEventListener("touchmove", touchMove, { passive: false });
