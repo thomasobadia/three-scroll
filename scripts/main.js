@@ -93,8 +93,30 @@ scene.fog = new THREE.Fog( 0x0C1015,0,5);
 // window.addEventListener( 'wheel', onMouseWheel, { passive: false } );
 
 // window.addEventListener('scroll', onMouseWheel );
-document.addEventListener( 'touchmove', onMouseWheel, { passive: false } );
 document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
+
+
+document.addEventListener("touchstart", touchStart, false);
+document.addEventListener("touchmove", touchMove, false);
+
+var start = {x:0,y:0};
+
+function touchStart(event) {
+
+start.x = event.touches[0].pageX;
+start.y = event.touches[0].pageY;
+}
+
+function touchMove(event){
+
+offset = {};
+
+offset.x = start.x - event.touches[0].pageX;
+offset.y = start.y - event.touches[0].pageY;
+
+camera.position.z -= offset.y * 0.001;
+
+}
 
 
 
