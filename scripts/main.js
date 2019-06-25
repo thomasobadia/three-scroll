@@ -10,6 +10,7 @@ let windowWidth = window.innerWidth
 let windowHeight = window.innerHeight
 const camera = new THREE.PerspectiveCamera(70, windowWidth / windowHeight, 0.001, 7)
 camera.position.z = 0
+camera.lookAt(0,0,0)
 
 scene.add(camera)
 
@@ -44,6 +45,7 @@ texture.crossOrigin = 'anonymous';
 var video = new THREE.Mesh(
     new THREE.PlaneGeometry(2*16/9, 2),
     new THREE.MeshBasicMaterial({ map: texture }),);
+video.position.z = -5
 scene.add( video );
 
 
@@ -57,15 +59,13 @@ var sprite = new THREE.Sprite( material );
 sprite.scale.set(1,1,1);
 sprite.position.y= 1
 sprite.position.x= 1
-sprite.position.z= 2
+sprite.position.z= -4
 scene.add( sprite );
 
 
 // TEXT
 
 var loader = new THREE.FontLoader()
-
-
 loader.load( 'assets/Montserrat_Bold.json', function ( font ) {
     var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
     var message = "1910";
@@ -76,7 +76,7 @@ loader.load( 'assets/Montserrat_Bold.json', function ( font ) {
     text = new THREE.Mesh( geometry, material );
     text.position.x = -2.5;
     text.position.y = -1;
-    text.position.z = 1;
+    text.position.z = -8;
     scene.add( text );
 })
 
@@ -87,15 +87,22 @@ loader.load( 'assets/Montserrat_Bold.json', function ( font ) {
 scene.background = new THREE.TextureLoader().load("assets/background.png")
 scene.fog = new THREE.Fog( 0x0C1015,0,5);
 
+
 /**
  * Scroll
  */
 
-// window.addEventListener( 'wheel', onMouseWheel, { passive: false } );
-
-// window.addEventListener('scroll', onMouseWheel );
 document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
 
+function onMouseWheel( event ) {
+	event.preventDefault();
+    camera.position.z -= event.deltaY * 0.001;  
+    if(camera.position.z > 0 ){
+        camera.position.z = 0 
+    }
+}
+
+// Mobile scroll support 
 
 document.addEventListener("touchstart", touchStart, { passive: false });
 document.addEventListener("touchmove", touchMove, { passive: false });
@@ -111,32 +118,19 @@ function touchStart(event) {
 function touchMove(event){
     event.preventDefault()
     offset = {};
-
     offset.x = start.x - event.touches[0].pageX;
     offset.y = start.y - event.touches[0].pageY;
-
-    camera.position.z -= offset.y * 0.001;
-
-}
-
-
-
-function onMouseWheel( event ) {
-
-	event.preventDefault();
-
-    camera.position.z -= event.deltaY * 0.001;
-  
-  // prevent scrolling beyond a min/max value
-  
+    camera.position.z += offset.y * 0.001;
+    if(camera.position.z > 0 ){
+        camera.position.z = 0 
+    }
 
 }
-
-
 
 /**
  * Resize
  */
+
 window.addEventListener('resize', () => {
     windowWidth = window.innerWidth
     windowHeight = window.innerHeight
@@ -150,8 +144,7 @@ window.addEventListener('resize', () => {
  */
 const animate = () => {
     window.requestAnimationFrame(animate)
-    camera.lookAt(scene.position)
-    // camera.position.z += 0.01
+    
     renderer.render(scene, camera)
 }
 animate()
