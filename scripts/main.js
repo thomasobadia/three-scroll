@@ -32,6 +32,7 @@ video = document.createElement( 'video' );
 video.src = "assets/video.mp4";
 video.muted = "true"
 video.load()
+// TODO Support play device
 video.play()
 var texture = new THREE.VideoTexture( video );
 texture.needsUpdate;
