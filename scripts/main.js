@@ -12,6 +12,8 @@ const camera = new THREE.PerspectiveCamera(70, windowWidth / windowHeight, 0.001
 camera.position.z = 0
 camera.lookAt(0,0,0)
 
+
+
 scene.add(camera)
 
 /**
@@ -67,19 +69,37 @@ scene.add( sprite );
 
 var loader = new THREE.FontLoader()
 loader.load( 'assets/Montserrat_Bold.json', function ( font ) {
-    var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+    var material = new THREE.MeshBasicMaterial( { color: 0x24282E } );
     var message = "1910";
     var shapes = font.generateShapes( message, 2);
     var geometry = new THREE.ShapeBufferGeometry( shapes );
-    geometry.computeBoundingBox();
+    // geometry.computeBoundingBox();
 
     text = new THREE.Mesh( geometry, material );
-    text.position.x = -2.5;
-    text.position.y = -1;
-    text.position.z = -8;
+    text.position.x = 0;
+    text.position.y = 0;
+    text.position.z = -3;
     scene.add( text );
+    text.geometry.center()
+
+   
 })
 
+loader.load( 'assets/Hijrnotes_Regular.json', function ( font ) {
+    var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+    var message = "Années";
+    var shapes = font.generateShapes( message, 0.25);
+    var geometry = new THREE.ShapeBufferGeometry( shapes );
+    // geometry.computeBoundingBox();
+
+    text = new THREE.Mesh( geometry, material );
+    text.position.x = 0;
+    text.position.y = 0;
+    text.position.z = -2.8;
+    scene.add( text );
+    text.geometry.center()
+    
+})
 
 
 // BACKGROUND AND FOG 
