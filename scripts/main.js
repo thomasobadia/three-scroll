@@ -90,7 +90,12 @@ scene.fog = new THREE.Fog( 0x0C1015,0,5);
  * Scroll
  */
 
-window.addEventListener( 'wheel', onMouseWheel, { passive: false } );
+// window.addEventListener( 'wheel', onMouseWheel, { passive: false } );
+
+// window.addEventListener('scroll', onMouseWheel );
+document.addEventListener( 'mousedown', onMouseWheel, { passive: false } );
+document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
+
 
 
 function onMouseWheel( event ) {
