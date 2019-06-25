@@ -105,7 +105,7 @@ const init = () => {
         offset = {};
         offset.x = start.x - event.touches[0].pageX;
         offset.y = start.y - event.touches[0].pageY;
-        camera.position.z += offset.y * 0.001;
+        camera.position.z -= offset.y * 0.001;
         if(camera.position.z > 0 ){
             camera.position.z = 0 
         }
