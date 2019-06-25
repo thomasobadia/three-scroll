@@ -134,18 +134,6 @@ const init = () => {
         console.log(event.alpha / 100)
         camera.rotation.x =  (event.beta - 90) / 100
         camera.rotation.y =  event.alpha / 100
-        if(camera.rotation.x > 0.5){
-            camera.rotation.x = 0.5
-        }
-        if(camera.rotation.x < -0.5){
-            camera.rotation.x = -0.5
-        }
-        if(camera.rotation.y > 0.5){
-            camera.rotation.x = 0.5
-        }
-        if(camera.rotation.y < -0.5){
-            camera.rotation.x = -0.5
-        }
     }
 
     window.addEventListener('deviceorientation', handleOrientation, false);
