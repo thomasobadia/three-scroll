@@ -18,7 +18,11 @@ const addVideo = (scene, url, size, position) => {
         new THREE.PlaneGeometry(size.w, size.h),
         new THREE.MeshBasicMaterial({ map: texture }));
     video.position.set(position.x,position.y,position.z);
+    video.callback = () => {
+        console.log('hello')
+    }
     scene.add( video );
+    
 }
 
 
@@ -57,6 +61,8 @@ const init = () => {
 
     const scene = new THREE.Scene()
     var loader = new THREE.FontLoader()
+    var mouse = new THREE.Vector2();
+    var raycaster = new THREE.Raycaster();
 
 
     let windowWidth = window.innerWidth
@@ -77,7 +83,7 @@ const init = () => {
     document.body.appendChild(renderer.domElement)
 
     scene.background = new THREE.TextureLoader().load("assets/background.png")
-    scene.fog = new THREE.Fog( 0x0C1015,0,5);
+    scene.fog = new THREE.Fog( 0x0C1015,2,5);
 
 
     var start = {x:0,y:0};
@@ -106,10 +112,34 @@ const init = () => {
     
     }
 
+    function onMouseMove( event ) {
+        mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+        camera.rotation.x =  mouse.y / 20
+        camera.rotation.y = - mouse.x / 20
+    }
+
+    const handleClick = () => {
+        raycaster.setFromCamera( mouse, camera );
+        // calculate objects intersecting the picking ray
+        var intersects = raycaster.intersectObjects( scene.children );
+        if(intersects.length){
+            console.log(intersects[0].object)
+        }
+    }
+
+    const handleOrientation = (event) => {
+        camera.rotation.x =  event.alpha / 20
+        camera.rotation.y = - event.beta/ 20
+        console.log('orichange')
+    }
+
+    document.addEventListener("deviceorientation", handleOrientation, true);
     document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     document.addEventListener("touchstart", touchStart, { passive: false });
     document.addEventListener("touchmove", touchMove, { passive: false });
-
+    document.addEventListener( 'mousemove', onMouseMove, false );
+    document.addEventListener( 'click', handleClick, false );
 
     window.addEventListener('resize', () => {
         windowWidth = window.innerWidth
@@ -121,15 +151,14 @@ const init = () => {
 
     const animate = () => {
         window.requestAnimationFrame(animate)
-        
+
         renderer.render(scene, camera)
+
     }
 
     animate()
-    addPicture(scene,'https://picsum.photos/2000', {x: 1, y:1, z:1}, {x: 1, y:1, z:-4}  )
-    // addText(scene,loader,'assets/Montserrat_Bold.json','1910', 2, {x:0,y:0,z:-3}, 0x24282E)
-    // addText(scene,loader,'assets/Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:-2.8}, 0xffffff)
 
+    addPicture(scene,'https://picsum.photos/2000', {x: 1, y:1, z:1}, {x: 1, y:1, z:-4}  )
     addDate(scene,loader, '1910', -3)
     addDate(scene,loader, '1920', -13)
     addDate(scene,loader, '1930', -23)
