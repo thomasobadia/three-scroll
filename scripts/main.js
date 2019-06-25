@@ -1,170 +1,149 @@
-/**
- * Scene
- */
-const scene = new THREE.Scene()
-
-/**
- * Camera
- */
-let windowWidth = window.innerWidth
-let windowHeight = window.innerHeight
-const camera = new THREE.PerspectiveCamera(70, windowWidth / windowHeight, 0.001, 7)
-camera.position.z = 0
-camera.lookAt(0,0,0)
-
-
-
-scene.add(camera)
-
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-    antialias: true,
-    alpha: true
-    
-})
-renderer.setSize(windowWidth, windowHeight)
-renderer.shadowMap.enabled = true
-document.body.appendChild(renderer.domElement)
-
-
 // VIDEO
 
-video = document.createElement( 'video' );
-video.src = "assets/video.mp4";
-video.muted = "true"
-video.load()
-// TODO Support play device
-video.play()
-var texture = new THREE.VideoTexture( video );
-texture.needsUpdate;
-texture.minFilter = THREE.LinearFilter;
-texture.magFilter = THREE.LinearFilter;
-texture.format = THREE.RGBFormat;
-texture.crossOrigin = 'anonymous';
+const addVideo = (scene, url, size, position) => {
 
-var video = new THREE.Mesh(
-    new THREE.PlaneGeometry(2*16/9, 2),
-    new THREE.MeshBasicMaterial({ map: texture }),);
-video.position.z = -5
-scene.add( video );
-
-
-// Picture 
-
-var map = new THREE.TextureLoader().load( 'https://picsum.photos/2000');
-var material = new THREE.SpriteMaterial( { map: map, color: 0xffffff } );
-material.minFilter = THREE.LinearFilter;
-material.magFilter = THREE.LinearFilter;
-var sprite = new THREE.Sprite( material );
-sprite.scale.set(1,1,1);
-sprite.position.y= 1
-sprite.position.x= 1
-sprite.position.z= -4
-scene.add( sprite );
+    video = document.createElement( 'video' );
+    video.src = url;
+    video.muted = "true"
+    video.load()
+    // TODO Support play device
+    video.play()
+    var texture = new THREE.VideoTexture( video );
+    texture.needsUpdate;
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.format = THREE.RGBFormat;
+    texture.crossOrigin = 'anonymous';
+    var video = new THREE.Mesh(
+        new THREE.PlaneGeometry(size.w, size.h),
+        new THREE.MeshBasicMaterial({ map: texture }));
+    video.position.set(position.x,position.y,position.z);
+    scene.add( video );
+}
 
 
-// TEXT
+const addPicture = (scene, url, size, position) => {
+    var map = new THREE.TextureLoader().load(url);
+    var material = new THREE.SpriteMaterial( { map: map} );
+    material.minFilter = THREE.LinearFilter;
+    material.magFilter = THREE.LinearFilter;
+    var sprite = new THREE.Sprite( material );
+    sprite.scale.set(size.x,size.y,size.z);
+    sprite.position.set(position.x,position.y,position.z);
+    scene.add( sprite );
+}
 
-var loader = new THREE.FontLoader()
-loader.load( 'assets/Montserrat_Bold.json', function ( font ) {
-    var material = new THREE.MeshBasicMaterial( { color: 0x24282E } );
-    var message = "1910";
-    var shapes = font.generateShapes( message, 2);
-    var geometry = new THREE.ShapeBufferGeometry( shapes );
-    // geometry.computeBoundingBox();
+const addText = (scene,loader, url, content, size, position, color) => {
 
-    text = new THREE.Mesh( geometry, material );
-    text.position.x = 0;
-    text.position.y = 0;
-    text.position.z = -3;
-    scene.add( text );
-    text.geometry.center()
-
-   
-})
-
-loader.load( 'assets/Hijrnotes_Regular.json', function ( font ) {
-    var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
-    var message = "Années";
-    var shapes = font.generateShapes( message, 0.25);
-    var geometry = new THREE.ShapeBufferGeometry( shapes );
-    // geometry.computeBoundingBox();
-
-    text = new THREE.Mesh( geometry, material );
-    text.position.x = 0;
-    text.position.y = 0;
-    text.position.z = -2.8;
-    scene.add( text );
-    text.geometry.center()
+    loader.load( url, function ( font ) {
+        var shapes = font.generateShapes( content, size);
+        text = new THREE.Mesh( 
+            new THREE.ShapeBufferGeometry(shapes),
+            new THREE.MeshBasicMaterial({ color: color }));
+        text.position.set(position.x,position.y,position.z);
+        text.geometry.center()
+        scene.add( text ); 
+    })
     
-})
-
-
-// BACKGROUND AND FOG 
-
-scene.background = new THREE.TextureLoader().load("assets/background.png")
-scene.fog = new THREE.Fog( 0x0C1015,0,5);
-
-
-/**
- * Scroll
- */
-
-document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
-
-function onMouseWheel( event ) {
-	event.preventDefault();
-    camera.position.z -= event.deltaY * 0.001;  
-    if(camera.position.z > 0 ){
-        camera.position.z = 0 
-    }
 }
 
-// Mobile scroll support 
-
-document.addEventListener("touchstart", touchStart, { passive: false });
-document.addEventListener("touchmove", touchMove, { passive: false });
-
-var start = {x:0,y:0};
-
-function touchStart(event) {
-    event.preventDefault()
-    start.x = event.touches[0].pageX;
-    start.y = event.touches[0].pageY;
+const addDate = (scene, loader, date, position) => {
+    addText(scene,loader,'assets/Montserrat_Bold.json',date, 2, {x:0,y:0,z:position}, 0x24282E)
+    addText(scene,loader,'assets/Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:position+0.2}, 0xffffff)
 }
 
-function touchMove(event){
-    event.preventDefault()
-    offset = {};
-    offset.x = start.x - event.touches[0].pageX;
-    offset.y = start.y - event.touches[0].pageY;
-    camera.position.z += offset.y * 0.001;
-    if(camera.position.z > 0 ){
-        camera.position.z = 0 
-    }
 
-}
+const init = () => {
 
-/**
- * Resize
- */
+    const scene = new THREE.Scene()
+    var loader = new THREE.FontLoader()
 
-window.addEventListener('resize', () => {
-    windowWidth = window.innerWidth
-    windowHeight = window.innerHeight
-    camera.aspect = windowWidth / windowHeight
-    camera.updateProjectionMatrix()
+
+    let windowWidth = window.innerWidth
+    let windowHeight = window.innerHeight
+
+    const camera = new THREE.PerspectiveCamera(70, windowWidth / windowHeight, 0.001, 7)
+    camera.position.z = 0
+    camera.lookAt(0,0,0)
+    scene.add(camera)
+
+    const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true
+        
+    })
     renderer.setSize(windowWidth, windowHeight)
-})
+    renderer.shadowMap.enabled = true
+    document.body.appendChild(renderer.domElement)
 
-/**
- * Loop
- */
-const animate = () => {
-    window.requestAnimationFrame(animate)
+    scene.background = new THREE.TextureLoader().load("assets/background.png")
+    scene.fog = new THREE.Fog( 0x0C1015,0,5);
+
+
+    var start = {x:0,y:0};
+    function onMouseWheel( event ) {
+        event.preventDefault();
+        camera.position.z -= event.deltaY * 0.001;  
+        if(camera.position.z > 0 ){
+            camera.position.z = 0 
+        }
+    }
+    function touchStart(event) {
+        event.preventDefault()
+        start.x = event.touches[0].pageX;
+        start.y = event.touches[0].pageY;
+    }
     
-    renderer.render(scene, camera)
+    function touchMove(event){
+        event.preventDefault()
+        offset = {};
+        offset.x = start.x - event.touches[0].pageX;
+        offset.y = start.y - event.touches[0].pageY;
+        camera.position.z += offset.y * 0.001;
+        if(camera.position.z > 0 ){
+            camera.position.z = 0 
+        }
+    
+    }
+
+    document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
+    document.addEventListener("touchstart", touchStart, { passive: false });
+    document.addEventListener("touchmove", touchMove, { passive: false });
+
+
+    window.addEventListener('resize', () => {
+        windowWidth = window.innerWidth
+        windowHeight = window.innerHeight
+        camera.aspect = windowWidth / windowHeight
+        camera.updateProjectionMatrix()
+        renderer.setSize(windowWidth, windowHeight)
+    })
+
+    const animate = () => {
+        window.requestAnimationFrame(animate)
+        
+        renderer.render(scene, camera)
+    }
+
+    animate()
+    addPicture(scene,'https://picsum.photos/2000', {x: 1, y:1, z:1}, {x: 1, y:1, z:-4}  )
+    // addText(scene,loader,'assets/Montserrat_Bold.json','1910', 2, {x:0,y:0,z:-3}, 0x24282E)
+    // addText(scene,loader,'assets/Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:-2.8}, 0xffffff)
+
+    addDate(scene,loader, '1910', -3)
+    addDate(scene,loader, '1920', -13)
+    addDate(scene,loader, '1930', -23)
+    addDate(scene,loader, '1940', -33)
+    addDate(scene,loader, '1950', -43)
+    addVideo(scene,"assets/video.mp4", {w:2*16/9, h:2}, {x:0,y:0,z:-5})
+
 }
-animate()
+
+
+init()
+
+
+
+
+
+
