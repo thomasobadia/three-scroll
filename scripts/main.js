@@ -97,8 +97,8 @@ scene.fog = new THREE.Fog( 0x0C1015,0,5);
 document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
 
 
-document.addEventListener("touchstart", touchStart, false);
-document.addEventListener("touchmove", touchMove, false);
+document.addEventListener("touchstart", touchStart, { passive: false });
+document.addEventListener("touchmove", touchMove, { passive: false });
 
 var start = {x:0,y:0};
 
