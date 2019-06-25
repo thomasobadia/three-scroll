@@ -100,21 +100,21 @@ document.addEventListener("touchstart", touchStart, false);
 document.addEventListener("touchmove", touchMove, false);
 
 var start = {x:0,y:0};
-event.preventDefault()
-function touchStart(event) {
 
-start.x = event.touches[0].pageX;
-start.y = event.touches[0].pageY;
+function touchStart(event) {
+    event.preventDefault()
+    start.x = event.touches[0].pageX;
+    start.y = event.touches[0].pageY;
 }
 
 function touchMove(event){
-event.preventDefault()
-offset = {};
+    event.preventDefault()
+    offset = {};
 
-offset.x = start.x - event.touches[0].pageX;
-offset.y = start.y - event.touches[0].pageY;
+    offset.x = start.x - event.touches[0].pageX;
+    offset.y = start.y - event.touches[0].pageY;
 
-camera.position.z -= offset.y * 0.001;
+    camera.position.z -= offset.y * 0.001;
 
 }
 
