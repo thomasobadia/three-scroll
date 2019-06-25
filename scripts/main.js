@@ -78,6 +78,9 @@ const init = () => {
         alpha: true
         
     })
+
+
+
     renderer.setSize(windowWidth, windowHeight)
     renderer.shadowMap.enabled = true
     document.body.appendChild(renderer.domElement)
@@ -117,6 +120,22 @@ const init = () => {
         mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
         camera.rotation.x =  mouse.y / 20
         camera.rotation.y = - mouse.x / 20
+        raycaster.setFromCamera( mouse, camera );
+        // calculate objects intersecting the picking ray
+        var intersects = raycaster.intersectObjects( scene.children );
+        if(intersects.length){
+            console.log(intersects[0].object)
+            if(intersects[0].object.type === "Sprite"){
+                document.querySelector('body').style.cursor ="pointer";
+
+            }else {
+                document.querySelector('body').style.cursor ="inherit";
+            }
+        }
+        else {
+            document.querySelector('body').style.cursor ="inherit";
+
+        }
     }
 
     const handleClick = () => {
@@ -125,18 +144,34 @@ const init = () => {
         var intersects = raycaster.intersectObjects( scene.children );
         if(intersects.length){
             console.log(intersects[0].object)
+            if(intersects[0].object.type === "Sprite"){
+                document.querySelector('body').style.cursor ="pointer";
+                console.log(intersects[0].object.position)
+                
+                TweenLite.to(intersects[0].object.position, 2, {x:0, y:0, z: camera.position.z - 1})
+                console.log('launch Anim')
+                console.log(scene.children)
+                // TODO : remove listener
+            }else {
+                // document.querySelector('body').style.cursor ="inherit";
+            }
         }
     }
 
-    const handleOrientation = (event) => {
-        console.log('orichange')
-        console.log((event.beta - 90) / 100)
-        console.log(event.alpha / 100)
-        camera.rotation.x =  (event.beta - 90) / 100
-        camera.rotation.y =  event.alpha / 100
-    }
 
-    window.addEventListener('deviceorientation', handleOrientation, false);
+
+    // TODO : Handle Mobile Orientation
+    // const handleOrientation = (event) => {
+    //     console.log('orichange')
+    //     console.log((event.beta - 90) / 100)
+    //     console.log(event.alpha / 100)
+    //     camera.rotation.x =  (event.beta - 90) / 100
+    //     camera.rotation.y =  event.alpha / 100
+    // }
+
+    // window.addEventListener('deviceorientation', handleOrientation, false);
+
+    
     document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     document.addEventListener("touchstart", touchStart, { passive: false });
     document.addEventListener("touchmove", touchMove, { passive: false });
@@ -162,10 +197,10 @@ const init = () => {
 
     addPicture(scene,'https://picsum.photos/2000', {x: 1, y:1, z:1}, {x: 1, y:1, z:-4}  )
     addDate(scene,loader, '1910', -3)
-    addDate(scene,loader, '1920', -13)
-    addDate(scene,loader, '1930', -23)
-    addDate(scene,loader, '1940', -33)
-    addDate(scene,loader, '1950', -43)
+    addDate(scene,loader, '1920', -8)
+    addDate(scene,loader, '1930', -13)
+    addDate(scene,loader, '1940', -18)
+    addDate(scene,loader, '1950', -23)
     addVideo(scene,"assets/video.mp4", {w:2*16/9, h:2}, {x:0,y:0,z:-5})
 
 }
