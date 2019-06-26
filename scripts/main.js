@@ -1,6 +1,87 @@
-// VIDEO
+const path = "assets/"
+const spaceBetweenYears = 10
+const spaceBetweenElements = 3
+let position = -3
 
-const addVideo = (scene, url, size, position) => {
+
+const dates = {
+    1910: [
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1915,
+            type: "picture",
+            url : "histoire-2.jpg",
+            content :"azdazdadz",
+        },
+        {
+            date: 1916,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"azdazdadz",
+        },
+        {
+            date: 1917,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"azdazdadz",
+        },
+        {
+            date: 1918,
+            type: "picture",
+            url : "histoire-5.jpg",
+            content :"azdazdadz",
+        },
+        {
+            date: 1910,
+            type: "picture",
+            url : "histoire-5.jpg",
+            content :"azdazdadz",
+        },
+        {
+            date: 56,
+            type: "picture",
+            url : "histoire-5.jpg",
+            content :"azdazdadz",
+        },
+        {
+            date: 156789918,
+            type: "picture",
+            url : "histoire-5.jpg",
+            content :"azdazdadz",
+        },
+        {
+            date: 1919,
+            type: "video",
+            url : "video.mp4",
+            content :"azdazdadz",
+        },
+    ],
+    1920: [
+        {
+            date: 1922,
+            type: "",
+            url : "",
+            content :"",
+        },
+        {
+            date: 1925,
+            type: "",
+            url : "",
+            content :"",
+        }
+    ] 
+
+}
+
+
+
+
+const addVideo = (scene, url, size, position, name, content) => {
 
     video = document.createElement( 'video' );
     video.src = url;
@@ -18,6 +99,8 @@ const addVideo = (scene, url, size, position) => {
         new THREE.PlaneGeometry(size.w, size.h),
         new THREE.MeshBasicMaterial({ map: texture }));
     video.position.set(position.x,position.y,position.z);
+    video.name = name
+    video.content = content
     video.callback = () => {
         console.log('hello')
     }
@@ -26,15 +109,48 @@ const addVideo = (scene, url, size, position) => {
 }
 
 
-const addPicture = (scene, url, size, position) => {
+const addPicture = (scene, url, position, name, content) => {
     var map = new THREE.TextureLoader().load(url);
+    var img = document.createElement("img");
+    var result
+    img.src = url;
+    img.onload = function (){
+        img.style.visibility = 'hidden';
+        document.body.appendChild(img);
+        var width = img.clientWidth;
+        var height = img.clientHeight;
+        document.body.removeChild(img)
+        sprite.scale.set(normalize(width,3000,0),normalize(height,3000,0),0.0001);
+    }
     var material = new THREE.SpriteMaterial( { map: map} );
     material.minFilter = THREE.LinearFilter;
     material.magFilter = THREE.LinearFilter;
     var sprite = new THREE.Sprite( material );
-    sprite.scale.set(size.x,size.y,size.z);
+    sprite.name = name
+    sprite.content = content
     sprite.position.set(position.x,position.y,position.z);
     scene.add( sprite );
+}
+
+function normalize(val, max, min) { return (val - min) / (max - min); }
+
+const generateImgSize = (url) => {
+    var img = document.createElement("img");
+    var result
+    img.src = url;
+    img.onload = function (){
+        img.style.visibility = 'hidden';
+        document.body.appendChild(img);
+        var width = img.clientWidth;
+        var height = img.clientHeight;
+        document.body.removeChild(img)
+        var result = {
+            x: normalize(width,3000,0),
+            y: normalize(height,3000,0),
+            z:0
+        }
+        return result;  
+    }   
 }
 
 const addText = (scene,loader, url, content, size, position, color) => {
@@ -68,8 +184,8 @@ const init = () => {
     let windowWidth = window.innerWidth
     let windowHeight = window.innerHeight
 
-    const camera = new THREE.PerspectiveCamera(70, windowWidth / windowHeight, 0.001, 7)
-    camera.position.z = 0
+    const camera = new THREE.PerspectiveCamera(70, windowWidth / windowHeight, 0.001, 10)
+    camera.position.z = 4
     camera.lookAt(0,0,0)
     scene.add(camera)
 
@@ -85,16 +201,20 @@ const init = () => {
     renderer.shadowMap.enabled = true
     document.body.appendChild(renderer.domElement)
 
-    scene.background = new THREE.TextureLoader().load("assets/background.png")
-    scene.fog = new THREE.Fog( 0x0C1015,2,5);
+    scene.background = new THREE.TextureLoader().load(path + "background.png")
+    scene.fog = new THREE.Fog( 0x0C1015,2,10);
 
 
     var start = {x:0,y:0};
+
     function onMouseWheel( event ) {
         event.preventDefault();
         camera.position.z -= event.deltaY * 0.001;  
-        if(camera.position.z > 0 ){
-            camera.position.z = 0 
+        var animCompleted = false
+        if(camera.position.z > 5 && !animCompleted ){
+            console.log('eazd')
+            TweenLite.to(camera.position, 0.25, { ease: Power2.easeOut, z: 4, onComplete: () => {animCompleted = true}});
+            // camera.position.z = 4 
         }
     }
     function touchStart(event) {
@@ -109,11 +229,13 @@ const init = () => {
         offset.x = start.x - event.touches[0].pageX;
         offset.y = start.y - event.touches[0].pageY;
         camera.position.z -= offset.y * 0.001;
-        if(camera.position.z > 0 ){
-            camera.position.z = 0 
+        if(camera.position.z > 4 ){
+            camera.position.z = 4 
         }
     
     }
+
+    
 
     function onMouseMove( event ) {
         mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -145,15 +267,14 @@ const init = () => {
         if(intersects.length){
             console.log(intersects[0].object)
             if(intersects[0].object.type === "Sprite"){
-                document.querySelector('body').style.cursor ="pointer";
-                console.log(intersects[0].object.position)
-                
-                TweenLite.to(intersects[0].object.position, 2, {x:0, y:0, z: camera.position.z - 1})
+                document.querySelector('body').style.cursor ="pointer";                
+                TweenLite.to(intersects[0].object.position, 0.5, { ease: Power2.easeOut, x:0, y:0, z: camera.position.z - 1 });
+                var toHide = scene.children.filter(mesh => mesh.uuid !== intersects[0].object.uuid)
+                toHide.map( mesh => mesh.visible = false)
+                console.log(toHide)
                 console.log('launch Anim')
                 console.log(scene.children)
                 // TODO : remove listener
-            }else {
-                // document.querySelector('body').style.cursor ="inherit";
             }
         }
     }
@@ -188,20 +309,38 @@ const init = () => {
 
     const animate = () => {
         window.requestAnimationFrame(animate)
-
         renderer.render(scene, camera)
+
+    }
+
+
+    for(let i = 0; i < Object.values(dates).length; i++){
+        if (i > 0){
+            position -= spaceBetweenYears
+        }
+        addDate(scene,loader, Object.keys(dates)[i],position)
+
+        for (let j = 0; j <Object.values(dates)[i].length; j++){
+            console.log(Object.values(dates)[i][j].date)
+            position -= spaceBetweenElements
+
+            switch (Object.values(dates)[i][j].type){
+                case 'picture':
+                    addPicture(scene, path + Object.values(dates)[i][j].url, {x: (Math.floor(Math.random()*2) == 1 ? 1 : -1)*(Math.random()*3), y:(Math.floor(Math.random()*2) == 1 ? 1 : -1)*(Math.random()*3), z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
+                    break;
+                case 'video':
+                    addVideo(scene,path + Object.values(dates)[i][j].url, {w:2*16/9, h:2}, {x:0,y:0,z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
+                    break;
+                default:
+                    console.log('error')
+            }
+        }
 
     }
 
     animate()
 
-    addPicture(scene,'https://picsum.photos/2000', {x: 1, y:1, z:1}, {x: 1, y:1, z:-4}  )
-    addDate(scene,loader, '1910', -3)
-    addDate(scene,loader, '1920', -8)
-    addDate(scene,loader, '1930', -13)
-    addDate(scene,loader, '1940', -18)
-    addDate(scene,loader, '1950', -23)
-    addVideo(scene,"assets/video.mp4", {w:2*16/9, h:2}, {x:0,y:0,z:-5})
+
 
 }
 
