@@ -1,3 +1,14 @@
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url("assets/Montsrrat-Bold.ttf") format('ttf')
+}
+
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("assets/Montsrrat-Regular.ttf") format('ttf')
+}
+
+
 canvas{
     position: absolute;
     top: 0;
@@ -13,6 +24,34 @@ body,html{
 
 body {
     overscroll-behavior-y:none;
+}
+
+
+.year{
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20%;
+    font-family: Montserrat-Black;
+    color:#fff;
+    font-size: 90px;
+    text-align: center;
+
+}
+.content{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 30%;
+    text-align: justify;
+    font-family: Montserrat-Regular;
+    color:#fff;
+    font-size: 15px;
+    line-height: 25px;
 }
 
 
