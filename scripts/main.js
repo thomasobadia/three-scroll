@@ -3,6 +3,17 @@ const spaceBetweenYears = 10
 const spaceBetweenElements = 3
 let position = -3
 
+const randomPosition = () => {  
+    let result = 0
+        while (result <= 1 && result >= -1 ){
+            result = (Math.floor(Math.random()*2) == 1 ? 1 : -1)*(Math.random()*2)
+
+        }
+    return result;
+}
+
+    
+
 
 const dates = {
     1910: [
@@ -73,6 +84,42 @@ const dates = {
             type: "",
             url : "",
             content :"",
+        },
+        {
+            date: 1919,
+            type: "video",
+            url : "video.mp4",
+            content :"azdazdadz",
+        },
+        {
+            date: 1919,
+            type: "video",
+            url : "video.mp4",
+            content :"azdazdadz",
+        },
+        {
+            date: 1919,
+            type: "video",
+            url : "video.mp4",
+            content :"azdazdadz",
+        },
+        {
+            date: 1919,
+            type: "video",
+            url : "video.mp4",
+            content :"azdazdadz",
+        },
+        {
+            date: 1919,
+            type: "video",
+            url : "video.mp4",
+            content :"azdazdadz",
+        },
+        {
+            date: 1919,
+            type: "video",
+            url : "video.mp4",
+            content :"azdazdadz",
         }
     ] 
 
@@ -184,7 +231,7 @@ const init = () => {
     let windowWidth = window.innerWidth
     let windowHeight = window.innerHeight
 
-    const camera = new THREE.PerspectiveCamera(70, windowWidth / windowHeight, 0.001, 10)
+    const camera = new THREE.PerspectiveCamera(70, windowWidth / windowHeight, 0.001, 1000)
     camera.position.z = 4
     camera.lookAt(0,0,0)
     scene.add(camera)
@@ -261,7 +308,7 @@ const init = () => {
     }
 
     const handleClick = () => {
-        raycaster.setFromCamera( mouse, camera );
+        // raycaster.setFromCamera( mouse, camera );
         // calculate objects intersecting the picking ray
         var intersects = raycaster.intersectObjects( scene.children );
         if(intersects.length){
@@ -326,10 +373,10 @@ const init = () => {
 
             switch (Object.values(dates)[i][j].type){
                 case 'picture':
-                    addPicture(scene, path + Object.values(dates)[i][j].url, {x: (Math.floor(Math.random()*2) == 1 ? 1 : -1)*(Math.random()*3), y:(Math.floor(Math.random()*2) == 1 ? 1 : -1)*(Math.random()*3), z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
+                    addPicture(scene, path + Object.values(dates)[i][j].url, {x: randomPosition(), y:randomPosition(), z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
                     break;
                 case 'video':
-                    addVideo(scene,path + Object.values(dates)[i][j].url, {w:2*16/9, h:2}, {x:0,y:0,z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
+                    addVideo(scene,path + Object.values(dates)[i][j].url, {w:2*16/9, h:2}, {x:randomPosition(),y:randomPosition(),z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
                     break;
                 default:
                     console.log('error')
@@ -346,9 +393,3 @@ const init = () => {
 
 
 init()
-
-
-
-
-
-
