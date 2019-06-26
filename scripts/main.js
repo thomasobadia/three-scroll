@@ -1,7 +1,9 @@
 const path = "assets/"
-const spaceBetweenYears = 10
-const spaceBetweenElements = 3
+const spaceBetweenYears = 5
+const spaceBetweenElements = 2
 let position = -3
+const elementsPosition = [{x:2,y:1},{x:-2,y:-1}, {x:-2,y:1}, {x:2,y:-1}]
+
 
 const randomPosition = () => {  
     let result = 0
@@ -120,7 +122,85 @@ const dates = {
             type: "video",
             url : "video.mp4",
             content :"azdazdadz",
-        }
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-1.jpg",
+            content :"azdazd",
+        },
     ] 
 
 }
@@ -155,6 +235,8 @@ const addVideo = (scene, url, size, position, name, content) => {
     
 }
 
+function normalize(val, max, min) { return (val - min) / (max - min); }
+
 
 const addPicture = (scene, url, position, name, content) => {
     var map = new THREE.TextureLoader().load(url);
@@ -167,7 +249,7 @@ const addPicture = (scene, url, position, name, content) => {
         var width = img.clientWidth;
         var height = img.clientHeight;
         document.body.removeChild(img)
-        sprite.scale.set(normalize(width,3000,0),normalize(height,3000,0),0.0001);
+        sprite.scale.set(normalize(width,3000,0)*1.5,normalize(height,3000,0)*1.5,0.0001);
     }
     var material = new THREE.SpriteMaterial( { map: map} );
     material.minFilter = THREE.LinearFilter;
@@ -179,26 +261,6 @@ const addPicture = (scene, url, position, name, content) => {
     scene.add( sprite );
 }
 
-function normalize(val, max, min) { return (val - min) / (max - min); }
-
-const generateImgSize = (url) => {
-    var img = document.createElement("img");
-    var result
-    img.src = url;
-    img.onload = function (){
-        img.style.visibility = 'hidden';
-        document.body.appendChild(img);
-        var width = img.clientWidth;
-        var height = img.clientHeight;
-        document.body.removeChild(img)
-        var result = {
-            x: normalize(width,3000,0),
-            y: normalize(height,3000,0),
-            z:0
-        }
-        return result;  
-    }   
-}
 
 const addText = (scene,loader, url, content, size, position, color) => {
 
@@ -256,7 +318,10 @@ const init = () => {
 
     function onMouseWheel( event ) {
         event.preventDefault();
-        camera.position.z -= event.deltaY * 0.001;  
+        // camera.position.z -= event.deltaY * 0.001;  
+        console.log(event.deltaY /2)
+        TweenLite.to(camera.position,1, { ease: Power0.ease, z: "-=" +event.deltaY /10 , overwrite : "none"});
+        
         var animCompleted = false
         if(camera.position.z > 5 && !animCompleted ){
             console.log('eazd')
@@ -287,8 +352,10 @@ const init = () => {
     function onMouseMove( event ) {
         mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
         mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-        camera.rotation.x =  mouse.y / 20
-        camera.rotation.y = - mouse.x / 20
+        // camera.rotation.x =  mouse.y / 20
+        TweenLite.to(camera.rotation,1, { ease: Power0.ease, x: mouse.y / 10, y: - mouse.x / 10, overwrite : "none"});
+
+        // camera.rotation.y = - mouse.x / 20
         raycaster.setFromCamera( mouse, camera );
         // calculate objects intersecting the picking ray
         var intersects = raycaster.intersectObjects( scene.children );
@@ -373,10 +440,10 @@ const init = () => {
 
             switch (Object.values(dates)[i][j].type){
                 case 'picture':
-                    addPicture(scene, path + Object.values(dates)[i][j].url, {x: randomPosition(), y:randomPosition(), z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
+                    addPicture(scene, path + Object.values(dates)[i][j].url, {x: elementsPosition[j%elementsPosition.length].x, y:elementsPosition[j%elementsPosition.length].y, z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
                     break;
                 case 'video':
-                    addVideo(scene,path + Object.values(dates)[i][j].url, {w:2*16/9, h:2}, {x:randomPosition(),y:randomPosition(),z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
+                    addVideo(scene,path + Object.values(dates)[i][j].url, {w:2*16/9, h:2}, {x: elementsPosition[j%elementsPosition.length].x, y:elementsPosition[j%elementsPosition.length].y,z:position}, Object.values(dates)[i][j].date, Object.values(dates)[i][j].content)
                     break;
                 default:
                     console.log('error')
