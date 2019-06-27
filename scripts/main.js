@@ -11,7 +11,7 @@ const dates = {
         {
             date: 1912,
             type: "picture",
-            url : "histoire-1.jpg",
+            url : "histoire-6.jpg",
             content :"azdazd",
         },
         {
@@ -23,7 +23,7 @@ const dates = {
         {
             date: 1914,
             type: "picture",
-            url : "histoire-2.jpg",
+            url : "histoire-6.jpg",
             content :"azdazd",
         },
         {
@@ -35,13 +35,13 @@ const dates = {
         {
             date: 1916,
             type: "picture",
-            url : "histoire-8.jpg",
+            url : "histoire-3.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         {
             date: 1917,
             type: "picture",
-            url : "histoire-5.jpg",
+            url : "histoire-4.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         
@@ -64,7 +64,7 @@ const dates = {
         {
             date: 1932,
             type: "picture",
-            url : "histoire-5.jpg",
+            url : "histoire-4.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         {
@@ -78,13 +78,13 @@ const dates = {
         {
             date: 1942,
             type: "picture",
-            url : "histoire-7.jpg",
+            url : "histoire-4.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         {
             date: 1945,
             type: "picture",
-            url : "histoire-8.jpg",
+            url : "histoire-3.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
     ],
@@ -92,7 +92,7 @@ const dates = {
         {
             date: 1952,
             type: "picture",
-            url : "histoire-1.jpg",
+            url : "histoire-6.jpg",
             content :"azdazd",
         },
         {
@@ -104,7 +104,7 @@ const dates = {
         {
             date: 1954,
             type: "picture",
-            url : "histoire-2.jpg",
+            url : "histoire-6.jpg",
             content :"azdazd",
         },
         {
@@ -116,13 +116,13 @@ const dates = {
         {
             date: 1956,
             type: "picture",
-            url : "histoire-8.jpg",
+            url : "histoire-3.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         {
             date: 1957,
             type: "picture",
-            url : "histoire-5.jpg",
+            url : "histoire-4.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         
@@ -131,7 +131,7 @@ const dates = {
         {
             date: 1962,
             type: "picture",
-            url : "histoire-1.jpg",
+            url : "histoire-6.jpg",
             content :"azdazd",
         },
         {
@@ -143,7 +143,7 @@ const dates = {
         {
             date: 1964,
             type: "picture",
-            url : "histoire-2.jpg",
+            url : "histoire-6.jpg",
             content :"azdazd",
         },
         {
@@ -155,13 +155,13 @@ const dates = {
         {
             date: 1966,
             type: "picture",
-            url : "histoire-8.jpg",
+            url : "histoire-3.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         {
             date: 1967,
             type: "picture",
-            url : "histoire-5.jpg",
+            url : "histoire-4.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         
@@ -170,7 +170,7 @@ const dates = {
         {
             date: 1972,
             type: "picture",
-            url : "histoire-1.jpg",
+            url : "histoire-6.jpg",
             content :"azdazd",
         },
         {
@@ -182,7 +182,7 @@ const dates = {
         {
             date: 1974,
             type: "picture",
-            url : "histoire-2.jpg",
+            url : "histoire-6.jpg",
             content :"azdazd",
         },
         {
@@ -194,13 +194,13 @@ const dates = {
         {
             date: 1976,
             type: "picture",
-            url : "histoire-8.jpg",
+            url : "histoire-3.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         {
             date: 1977,
             type: "picture",
-            url : "histoire-5.jpg",
+            url : "histoire-4.jpg",
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         
