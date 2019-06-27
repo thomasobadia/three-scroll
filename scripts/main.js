@@ -435,7 +435,7 @@ const init = () => {
 
                 }
                 canScroll = false
-                setTimeout(()=>{ canScroll = true },500)
+                setTimeout(()=>{ canScroll = true },1000)
             }
                     
         }
