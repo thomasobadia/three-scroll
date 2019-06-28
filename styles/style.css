@@ -16,6 +16,7 @@
 
 canvas{
     position: absolute;
+    opacity:0;
     top: 0;
     left: 0;
     width: 100%;
@@ -37,6 +38,10 @@ body {
     background-size: cover;
 }
 
+
+.year-content-overlay{
+    opacity: 0;
+}
 
 .year{
     position: absolute;
@@ -70,6 +75,7 @@ body {
     position: absolute;
     z-index: 3;
     right: 0;
+    opacity:0;
     top: 0;
     width: 7vw;
     height: 100%;
@@ -110,6 +116,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 4;
 }
 
 .title-primary{
@@ -124,7 +131,7 @@ body {
     letter-spacing: 5px;
 }
 
-.subtitle{
+.subtitle, .progress{
     font-family: Montserrat-Regular;
     color: rgb(175, 175, 175);
     font-size: 14px;

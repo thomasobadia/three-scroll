@@ -2,11 +2,38 @@ const path = "assets/"
 const spaceBetweenYears = 5
 const spaceBetweenElements = 2
 const spaceBetweenYearAndText = 1
-let position = -3
-const elementsPosition = [{x:2,y:1},{x:-2,y:-1}, {x:-2,y:1}, {x:2,y:-1}]
-// TODO : CHanger ordre 
+let position = 0
+const elementsPosition = [{x:-2,y:1},{x:2,y:1}, {x:2,y:-1}, {x:-2,y:-1}]
+// TODO : Random sur le premier element d'une année
 
 const dates = {
+    0: [
+        {
+            date: 1880,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1881,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1882,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1883,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+    
+    ],
     1910: [
         {
             date: 1912,
@@ -204,6 +231,162 @@ const dates = {
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
         },
         
+    ], 
+    1980: [
+        {
+            date: 1972,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1973,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1974,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1975,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1976,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1977,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        
+    ],  
+    1990: [
+        {
+            date: 1972,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1973,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1974,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1975,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1976,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1977,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        
+    ],  
+    2000: [
+        {
+            date: 1972,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1973,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1974,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1975,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1976,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1977,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        
+    ],  
+    2010: [
+        {
+            date: 1972,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1973,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1974,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"azdazd",
+        },
+        {
+            date: 1975,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1976,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1977,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        
     ],  
 
 }
@@ -289,9 +472,10 @@ const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
     for(let i = 0; i < Object.values(obj).length; i++){
         if (i > 0){
             position -= spaceBetweenYears
+            addDate(scene,loader, Object.keys(obj)[i],position)
+            Object.values(obj)[i].position = position
         }
-        addDate(scene,loader, Object.keys(obj)[i],position)
-        Object.values(obj)[i].position = position
+       
         console.log(position)
 
 
@@ -315,7 +499,7 @@ const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
 }
 
 const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor) => {
-    for(let i = 0; i < Object.values(obj).length; i++){
+    for(let i = 1; i < Object.values(obj).length; i++){
         var year = document.createElement('div')
         year.classList.add('sidebar-container-year')
         // console.log(Object.keys(obj)[i])
@@ -330,9 +514,7 @@ const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor) => {
     }
 
 }
-// origin.addEventListener('click', () => {
-//     jumpTo(obj, 'origines')
-// })
+
 
 const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
 
@@ -340,8 +522,6 @@ const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
     console.log(goodone)
     TweenMax.to(camera.position,1, { ease: Power0.ease, z: goodone[0][1].position + 4 , overwrite : "none"});
     
-
-
 }
 
 
@@ -349,7 +529,7 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
     let years = Array.from(sidebarContainer.children)
     // TODO : Set class active on menu elements
     for(let j = 0; j< Object.values(dates).length; j++){
-        if(j == 0 && camera.position.z -5 > Object.values(dates)[j].position ){
+        if(j == 0 && camera.position.z  > Object.values(dates)[j].position ){
             var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
 
@@ -367,13 +547,6 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
 
 
 const init = () => {
-
-    // var manager = new THREE.LoadingManager();
-    // console.log(manager)
-    // manager.onProgress = function ( item, loaded, total ) {
-    //     progressBar.style.width = (loaded / total * 100) + '%';
-    //     console.log((loaded / total * 100) + '%')
-    // };
     const scene = new THREE.Scene()
     var loader = new THREE.FontLoader()
     var mouse = new THREE.Vector2();
@@ -383,37 +556,41 @@ const init = () => {
     const overlayContainer = document.querySelector('.year-content-overlay')
     const overlayYear = document.querySelector('.year')
     const overlayContent = document.querySelector('.content')
+    const sidebar = document.querySelector('.sidebar')
     const sidebarContainer = document.querySelector('.sidebar-container')
     const sidebarCursor = document.querySelector('.sidebar-cursor')
+    const intro = document.querySelector('.intro')
+    const progress = document.querySelector('.progress')
     var nextImage, prevImage
     let canScroll = true;
+    let loadingComplete = false
+    // TweenMax.set(overlayContainer,{autoAlpha:0});
 
-    THREE.DefaultLoadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+    document.querySelector('.origin').addEventListener('click', () => {
+        TweenMax.to(camera.position,1, { ease: Power0.ease, z: 4 , overwrite : "none"});
+        TweenMax.to(intro,0.5,{autoAlpha:1, scale: 1})
+        
+    })
 
-        console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    // THREE.DefaultLoadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+    //     progress.innerText = 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.'
     
-    };
+    // };
     
     THREE.DefaultLoadingManager.onLoad = function ( ) {
-    
-        console.log( 'Loading Complete!');
-    
+        progress.innerText = 'Chargement terminé !'
+        onLoadingComplete()
     };
     
-    
     THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-    
-        console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-    
+        progress.innerText =  itemsLoaded + ' fichiers chargés sur  ' + itemsTotal + '.'
+        
     };
     
     THREE.DefaultLoadingManager.onError = function ( url ) {
-    
-        console.log( 'There was an error loading ' + url );
-    
+        progress.innerText = 'There was an error loading ' + url     
     };
 
-    TweenMax.set(overlayContainer,{autoAlpha:0});
 
 
     let windowWidth = window.innerWidth
@@ -429,10 +606,20 @@ const init = () => {
         alpha: true
         
     })
+    
 
     renderer.setSize(windowWidth, windowHeight)
     renderer.shadowMap.enabled = true
+    renderer.domElement.id = 'canvas-histoire';
     document.body.appendChild(renderer.domElement)
+
+    const onLoadingComplete = () => {
+        loadingComplete = true
+        TweenMax.to(renderer.domElement,1,{opacity:1})
+        TweenMax.to(sidebar,1,{opacity:1})
+
+
+    }
 
     scene.background = new THREE.TextureLoader().load(path + "background.png")
     scene.fog = new THREE.Fog( 0x0C1015,2,10);
@@ -441,37 +628,46 @@ const init = () => {
     var start = {x:0,y:0};
 
 
-
     function onMouseWheel( event) {
         event.preventDefault();
         // console.log(camera.position.z)
-        if(!picOpened){
-            // camera.position.z -= event.deltaY * 0.001;  
-            console.log(event.deltaY )
-            // TODO acceleration ease in out 
-            TweenMax.to(camera.position,1, { ease: Power0.ease, z: "-=" +event.deltaY /10 , overwrite : "none"});
-            
-        }else {
-            
-            if(canScroll){
-                closeImage()
-                if(event.deltaY > 0){
+        if(loadingComplete){
+            if(!picOpened){
+                camera.position.z -= event.deltaY * 0.001;  
+                if (camera.position.z < 3.9){
+                    TweenMax.to(intro,0.5,{autoAlpha:0, scale: 5})
 
-                    
-                    openImage(nextImage)
-                   
-                
-                }else{
-
-                    openImage(prevImage)
+                }else {
+                    TweenMax.to(intro,0.5,{autoAlpha:1, scale: 1})
 
                 }
-                canScroll = false
-                setTimeout(()=>{ canScroll = true },1600)
-            }
+                console.log(event.deltaY )
+                // TODO acceleration ease in out 
+                TweenMax.to(camera.position,1, { ease: Power0.ease, z: "-=" +event.deltaY /10 , overwrite : "none"});
+                
+            }else {
+                
+                if(canScroll){
+                    closeImage()
+                    if(event.deltaY > 0){
+    
+                        
+                        openImage(nextImage)
+                       
                     
+                    }else{
+    
+                        openImage(prevImage)
+    
+                    }
+                    canScroll = false
+                    setTimeout(()=>{ canScroll = true },1600)
+                }
+                        
+            }
+
         }
-     
+        
     }
 
 
@@ -535,11 +731,15 @@ const init = () => {
         overlayContent.textContent = obj.content
         // console.log(picOpenedCoords)
         document.querySelector('body').style.cursor ="pointer";                
-        TweenMax.to(obj.position, 0.5, { ease: Power2.easeOut, x:-1, y:0, z: camera.position.z - 2 });
-        TweenMax.to(overlayContainer,0.1, {ease: Power2.easeOut, autoAlpha:1 });
+        // TweenMax.to(obj.position, 0.5, { ease: Power2.easeOut, x:-1, y:0, z: camera.position.z - 2 });
+        TweenMax.to(camera.position, 0.5, { ease: Power2.easeOut, x:obj.position.x * 0.5, y:obj.position.y, z: obj.position.z + 1.5 });
+        TweenMax.to(overlayContainer,5, {ease: Power2.easeOut, opacity:1});
 
-        var toHide = scene.children.filter(mesh => mesh.uuid !== obj.uuid)
-        toHide.map( mesh => mesh.visible = false)
+        var toHide = scene.children.filter(mesh => mesh.uuid !== obj.uuid && mesh.type === "Sprite")
+        console.log(toHide)
+        // toHide.map( mesh => { mesh.material.opacity = 0})
+        toHide.map( mesh => { TweenMax.to(mesh.material,0.5, {ease: Power2.easeOut, opacity:0.1 })})
+
         console.log(scene.children)
         console.log(obj.uuid)
         for (let i = 0 ; i < scene.children.length; i++){
@@ -561,10 +761,15 @@ const init = () => {
     }
 
     const closeImage = () => {
-        scene.children.map(mesh => mesh.visible = true)
+        var toShow = scene.children.filter(mesh =>  mesh.type === "Sprite")
+        toShow.map( mesh => { TweenMax.to(mesh.material,0.5, {ease: Power2.easeOut, opacity:1 })})
+
+
             
-        TweenMax.to(scene.getObjectByName(picOpenedCoords.name).position, 0.5, { ease: Power2.easeOut, x:picOpenedCoords.x, y:picOpenedCoords.y, z: picOpenedCoords.z });
-        TweenMax.to(overlayContainer,0.1, {ease: Power2.easeOut, autoAlpha:0 });
+        // TweenMax.to(scene.getObjectByName(picOpenedCoords.name).position, 0.5, { ease: Power2.easeOut, x:picOpenedCoords.x, y:picOpenedCoords.y, z: picOpenedCoords.z });
+        TweenMax.to(camera.position, 0.5, { ease: Power2.easeOut, x:0, y:0, z: picOpenedCoords.z + 2 });
+        
+        TweenMax.to(overlayContainer,5, {ease: Power2.easeOut, opacity:0});
         picOpened = false
     }
 
@@ -589,6 +794,13 @@ const init = () => {
     }
 
     const handleClick = () => {
+        if (camera.position.z < 3.9){
+            TweenMax.to(intro,0.5,{autoAlpha:0, scale: 5})
+
+        }else {
+            TweenMax.to(intro,0.5,{autoAlpha:1, scale: 1})
+
+        }
         updateCursor()
         toggleImageContent()
 
@@ -627,9 +839,6 @@ const init = () => {
     const animate = () => {
         window.requestAnimationFrame(animate)
         // TODO : Correct bug camera > 4
-        if(camera.position.z > 4 ){
-            camera.position.z = 4
-        }
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera);
         renderer.render(scene, camera)
 
