@@ -8,6 +8,11 @@
     src: url("assets/Montsrrat-Regular.ttf") format('ttf')
 }
 
+@font-face {
+    font-family: "Hijrnotes";
+    src: url("assets/Hijrnotes.ttf") format('ttf')
+}
+
 
 canvas{
     position: absolute;
@@ -20,10 +25,16 @@ canvas{
 body,html{
     margin: 0;
     padding: 0;
+    height: 100%;
+
 }
 
 body {
+    overflow: hidden;
     overscroll-behavior-y:none;
+    background-image: url('../assets/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -85,5 +96,39 @@ body {
     height: 1px;
     transform: translateX(-50%);
     border-bottom: 2px solid #fff;
-
 }
+
+.intro{
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-primary{
+    font-family: Hijrnotes;
+    color: #fff;
+    font-size: 35px;
+}
+.title-secondary{
+    font-family: Montserrat-Bold;
+    color: #fff;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+.subtitle{
+    font-family: Montserrat-Regular;
+    color: rgb(175, 175, 175);
+    font-size: 14px;
+    line-height: 25px;
+    margin-top: 20px;
+}
+

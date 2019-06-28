@@ -4,7 +4,7 @@ const spaceBetweenElements = 2
 const spaceBetweenYearAndText = 1
 let position = -3
 const elementsPosition = [{x:2,y:1},{x:-2,y:-1}, {x:-2,y:1}, {x:2,y:-1}]
-
+// TODO : CHanger ordre 
 
 const dates = {
     1910: [
@@ -280,6 +280,7 @@ const addText = (scene,loader, url, content, size, position, color) => {
 }
 
 const addDate = (scene, loader, date, position) => {
+    // TODO : AddTransparence
     addText(scene,loader,'assets/Montserrat_Bold.json',date, 2, {x:0,y:0,z:position}, 0x24282E)
     addText(scene,loader,'assets/Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:position+spaceBetweenYearAndText}, 0xffffff)
 }
@@ -346,8 +347,8 @@ const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
 
 const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
     let years = Array.from(sidebarContainer.children)
+    // TODO : Set class active on menu elements
     for(let j = 0; j< Object.values(dates).length; j++){
-        
         if(j == 0 && camera.position.z -5 > Object.values(dates)[j].position ){
             var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
@@ -367,7 +368,12 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
 
 const init = () => {
 
-
+    // var manager = new THREE.LoadingManager();
+    // console.log(manager)
+    // manager.onProgress = function ( item, loaded, total ) {
+    //     progressBar.style.width = (loaded / total * 100) + '%';
+    //     console.log((loaded / total * 100) + '%')
+    // };
     const scene = new THREE.Scene()
     var loader = new THREE.FontLoader()
     var mouse = new THREE.Vector2();
@@ -381,6 +387,31 @@ const init = () => {
     const sidebarCursor = document.querySelector('.sidebar-cursor')
     var nextImage, prevImage
     let canScroll = true;
+
+    THREE.DefaultLoadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+
+        console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    
+    };
+    
+    THREE.DefaultLoadingManager.onLoad = function ( ) {
+    
+        console.log( 'Loading Complete!');
+    
+    };
+    
+    
+    THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+    
+        console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    
+    };
+    
+    THREE.DefaultLoadingManager.onError = function ( url ) {
+    
+        console.log( 'There was an error loading ' + url );
+    
+    };
 
     TweenMax.set(overlayContainer,{autoAlpha:0});
 
@@ -417,6 +448,7 @@ const init = () => {
         if(!picOpened){
             // camera.position.z -= event.deltaY * 0.001;  
             console.log(event.deltaY )
+            // TODO acceleration ease in out 
             TweenMax.to(camera.position,1, { ease: Power0.ease, z: "-=" +event.deltaY /10 , overwrite : "none"});
             
         }else {
@@ -535,7 +567,9 @@ const init = () => {
         TweenMax.to(overlayContainer,0.1, {ease: Power2.easeOut, autoAlpha:0 });
         picOpened = false
     }
+
     
+        
 
 
     const toggleImageContent = () => {
@@ -600,10 +634,14 @@ const init = () => {
         renderer.render(scene, camera)
 
     }
+    
 
     addItems(dates, scene, loader, sidebarContainer, camera, sidebarCursor)
     updateTimeLinePosition(sidebarContainer, sidebarCursor, camera)
     animate()
+
+
+
     console.log(scene.children)
 
 
@@ -612,3 +650,8 @@ const init = () => {
 
 
 init()
+
+
+
+
+
