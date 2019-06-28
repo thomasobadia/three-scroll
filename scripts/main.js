@@ -1,5 +1,6 @@
 const path = "assets/"
 const spaceBetweenYears = 5
+const spaceAfterYears = 3
 const spaceBetweenElements = 2
 const spaceBetweenYearAndText = 1
 let position = 0
@@ -12,25 +13,25 @@ const dates = {
             date: 1880,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1881,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1882,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1883,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
     
     ],
@@ -39,25 +40,25 @@ const dates = {
             date: 1912,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1913,
             type: "picture",
             url : "histoire-3.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1914,
             type: "picture",
-            url : "histoire-6.jpg",
-            content :"azdazd",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1915,
             type: "picture",
             url : "histoire-4.jpg",
-            content :"",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1916,
@@ -120,19 +121,19 @@ const dates = {
             date: 1952,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1953,
             type: "picture",
             url : "histoire-3.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1954,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1955,
@@ -159,19 +160,19 @@ const dates = {
             date: 1962,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1963,
             type: "picture",
             url : "histoire-3.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1964,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1965,
@@ -198,19 +199,19 @@ const dates = {
             date: 1972,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1973,
             type: "picture",
             url : "histoire-3.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1974,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1975,
@@ -237,19 +238,19 @@ const dates = {
             date: 1972,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1973,
             type: "picture",
             url : "histoire-3.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1974,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1975,
@@ -276,19 +277,19 @@ const dates = {
             date: 1972,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1973,
             type: "picture",
             url : "histoire-3.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1974,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1975,
@@ -315,19 +316,19 @@ const dates = {
             date: 1972,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1973,
             type: "picture",
             url : "histoire-3.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1974,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1975,
@@ -354,19 +355,19 @@ const dates = {
             date: 1972,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1973,
             type: "picture",
             url : "histoire-3.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1974,
             type: "picture",
             url : "histoire-6.jpg",
-            content :"azdazd",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
         {
             date: 1975,
@@ -448,13 +449,13 @@ const addPicture = (scene, url, position, name, content) => {
 }
 
 
-const addText = (scene,loader, url, content, size, position, color) => {
+const addText = (scene,loader, url, content, size, position, color,opacity) => {
 
     loader.load( url, function ( font ) {
         var shapes = font.generateShapes( content, size);
         text = new THREE.Mesh( 
             new THREE.ShapeBufferGeometry(shapes),
-            new THREE.MeshBasicMaterial({ color: color }));
+            new THREE.MeshBasicMaterial({ color: color, opacity: opacity, transparent : true }));
         text.position.set(position.x,position.y,position.z);
         text.geometry.center()
         scene.add( text ); 
@@ -463,9 +464,8 @@ const addText = (scene,loader, url, content, size, position, color) => {
 }
 
 const addDate = (scene, loader, date, position) => {
-    // TODO : AddTransparence
-    addText(scene,loader,'assets/Montserrat_Bold.json',date, 2, {x:0,y:0,z:position}, 0x24282E)
-    addText(scene,loader,'assets/Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:position+spaceBetweenYearAndText}, 0xffffff)
+    addText(scene,loader,'assets/Montserrat_Bold.json',date, 2, {x:0,y:0,z:position}, 0x24282E, 0.9)
+    addText(scene,loader,'assets/Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:position+spaceBetweenYearAndText}, 0xffffff, 1)
 }
 
 const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
@@ -480,7 +480,9 @@ const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
 
 
         for (let j = 0; j <Object.values(obj)[i].length; j++){
-            // console.log(Object.values(obj)[i][j].date)
+            if(j == 0 && i !== 0){
+                position -= spaceAfterYears
+            }
             position -= spaceBetweenElements
             switch (Object.values(obj)[i][j].type){
                 case 'picture':
@@ -509,6 +511,8 @@ const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor) => {
         year.addEventListener('click', () => {
             jumpTo(obj, Object.keys(obj)[i],camera, sidebarContainer, sidebarCursor)
             updateTimeLinePosition(sidebarContainer, sidebarCursor, camera)
+            TweenMax.to(document.querySelector('.intro'),0.5,{autoAlpha:0, scale: 5, onComplete: () =>{intro.style.display = 'none'}})
+            
 
         })
     }
@@ -528,17 +532,25 @@ const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
 const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
     let years = Array.from(sidebarContainer.children)
     // TODO : Set class active on menu elements
+    document.querySelector('.origin').classList.remove('active')
     for(let j = 0; j< Object.values(dates).length; j++){
-        if(j == 0 && camera.position.z  > Object.values(dates)[j].position ){
+        if (j!=0){
+            document.querySelector(`#annee-${Object.keys(dates)[j]}`).classList.remove('active')
+        }
+        if(j == 0 && camera.position.z  > Object.values(dates)[j+1].position ){
             var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
+            document.querySelector('.origin').classList.add('active')
 
 
-        } else if( j != 0 && camera.position.z -5 < Object.values(dates)[j-1].position && camera.position.z -5 > Object.values(dates)[j].position){
+        } else if(j != 0 && camera.position.z -5 < Object.values(dates)[j-1].position && camera.position.z -5 > Object.values(dates)[j].position){
             var value = document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
+            document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).classList.add('active')
+
 
         } 
+        // TODO : bug last slider item
     }
 
 }
@@ -564,11 +576,12 @@ const init = () => {
     var nextImage, prevImage
     let canScroll = true;
     let loadingComplete = false
-    // TweenMax.set(overlayContainer,{autoAlpha:0});
 
     document.querySelector('.origin').addEventListener('click', () => {
         TweenMax.to(camera.position,1, { ease: Power0.ease, z: 4 , overwrite : "none"});
+        intro.style.display = 'flex'
         TweenMax.to(intro,0.5,{autoAlpha:1, scale: 1})
+
         
     })
 
@@ -633,18 +646,12 @@ const init = () => {
         // console.log(camera.position.z)
         if(loadingComplete){
             if(!picOpened){
-                camera.position.z -= event.deltaY * 0.001;  
-                if (camera.position.z < 3.9){
-                    TweenMax.to(intro,0.5,{autoAlpha:0, scale: 5})
-
-                }else {
-                    TweenMax.to(intro,0.5,{autoAlpha:1, scale: 1})
-
+                let newPosition = camera.position.z - event.deltaY /10                
+                if(newPosition >= 4){
+                    console.log('trop loin')
+                    newPosition = 4
                 }
-                console.log(event.deltaY )
-                // TODO acceleration ease in out 
-                TweenMax.to(camera.position,1, { ease: Power0.ease, z: "-=" +event.deltaY /10 , overwrite : "none"});
-                
+                TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: newPosition , overwrite : "none"});
             }else {
                 
                 if(canScroll){
@@ -661,7 +668,7 @@ const init = () => {
     
                     }
                     canScroll = false
-                    setTimeout(()=>{ canScroll = true },1600)
+                    setTimeout(()=>{ canScroll = true },1000)
                 }
                         
             }
@@ -696,8 +703,8 @@ const init = () => {
         mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
         // camera.rotation.x =  mouse.y / 20
         TweenMax.to(camera.rotation,1, { ease: Power0.ease, x: mouse.y / 10, y: - mouse.x / 10, overwrite : "none"});
-        TweenMax.to(overlayContent.style,1, {ease: Power0.ease, top: 50 + mouse.y  + '%', left: 50+ - mouse.x   + '%'});
-        TweenMax.to(overlayYear.style,1, {ease: Power0.ease, top: 20 + mouse.y  + '%', left: 50+ - mouse.x   + '%'});
+        TweenMax.to(overlayContent.style,1, {ease: Power0.ease, top: 50 + mouse.y  + '%', left: '+=' - mouse.x   + '%'});
+        TweenMax.to(overlayYear.style,1, {ease: Power0.ease, top: 20 + mouse.y  + '%', left: '+=' - mouse.x   + '%'});
 
         
         updateCursor()
@@ -729,16 +736,30 @@ const init = () => {
         picOpenedCoords.z = obj.position.z
         overlayYear.textContent = obj.name
         overlayContent.textContent = obj.content
-        // console.log(picOpenedCoords)
-        document.querySelector('body').style.cursor ="pointer";                
-        // TweenMax.to(obj.position, 0.5, { ease: Power2.easeOut, x:-1, y:0, z: camera.position.z - 2 });
-        TweenMax.to(camera.position, 0.5, { ease: Power2.easeOut, x:obj.position.x * 0.5, y:obj.position.y, z: obj.position.z + 1.5 });
-        TweenMax.to(overlayContainer,5, {ease: Power2.easeOut, opacity:1});
+        document.querySelector('body').style.cursor ="pointer";   
+        
+        if(picOpenedCoords.x > 0){
+            overlayContent.classList.add('content-left')
+            if(overlayContent.classList.contains('content-right')){
+                overlayContent.classList.remove('content-right')
+            }
+            
+        }else {
+            overlayContent.classList.add('content-right')
+            if(overlayContent.classList.contains('content-left')){
+                overlayContent.classList.remove('content-left')
+            }
+        }
+        TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:obj.position.x * 0.60, y:obj.position.y, z: obj.position.z + 1.5 });
+        overlayContainer.style.display = 'block'
+        // TODO ADD DELAY
+        // TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, delay: 0.5, opacity:1, scale: 1});
+        TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut,  opacity:1, scale: 1});
 
-        var toHide = scene.children.filter(mesh => mesh.uuid !== obj.uuid && mesh.type === "Sprite")
+        var toHide = scene.children.filter(mesh => mesh.uuid !== obj.uuid && mesh.type !== "PerspectiveCamera" )
         console.log(toHide)
         // toHide.map( mesh => { mesh.material.opacity = 0})
-        toHide.map( mesh => { TweenMax.to(mesh.material,0.5, {ease: Power2.easeOut, opacity:0.1 })})
+        toHide.map( mesh => { TweenMax.to(mesh.material,1, {ease: Power2.easeInOut, opacity:0.1 })})
 
         console.log(scene.children)
         console.log(obj.uuid)
@@ -761,15 +782,12 @@ const init = () => {
     }
 
     const closeImage = () => {
-        var toShow = scene.children.filter(mesh =>  mesh.type === "Sprite")
-        toShow.map( mesh => { TweenMax.to(mesh.material,0.5, {ease: Power2.easeOut, opacity:1 })})
-
-
+        var toShow = scene.children.filter(mesh =>  mesh.type !== "PerspectiveCamera")
+        toShow.map( mesh => { TweenMax.to(mesh.material,0.5, {ease: Power2.easeInOut, opacity:1 })})
             
-        // TweenMax.to(scene.getObjectByName(picOpenedCoords.name).position, 0.5, { ease: Power2.easeOut, x:picOpenedCoords.x, y:picOpenedCoords.y, z: picOpenedCoords.z });
-        TweenMax.to(camera.position, 0.5, { ease: Power2.easeOut, x:0, y:0, z: picOpenedCoords.z + 2 });
-        
-        TweenMax.to(overlayContainer,5, {ease: Power2.easeOut, opacity:0});
+        // TweenMax.to(scene.getObjectByName(picOpenedCoords.name).position, 0.5, { ease: Power2.easeInOut, x:picOpenedCoords.x, y:picOpenedCoords.y, z: picOpenedCoords.z });
+        TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:0, y:0, z: picOpenedCoords.z + 2 });
+        TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainer.style.display = 'none'});
         picOpened = false
     }
 
@@ -794,13 +812,7 @@ const init = () => {
     }
 
     const handleClick = () => {
-        if (camera.position.z < 3.9){
-            TweenMax.to(intro,0.5,{autoAlpha:0, scale: 5})
-
-        }else {
-            TweenMax.to(intro,0.5,{autoAlpha:1, scale: 1})
-
-        }
+        
         updateCursor()
         toggleImageContent()
 
@@ -838,9 +850,19 @@ const init = () => {
 
     const animate = () => {
         window.requestAnimationFrame(animate)
-        // TODO : Correct bug camera > 4
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera);
         renderer.render(scene, camera)
+        if(camera.position.z >= 3){
+            intro.style.display = 'flex'
+            TweenMax.to(intro,0.5,{autoAlpha:1, scale: 1})
+            
+
+        }else{
+            
+            TweenMax.to(intro,0.5,{autoAlpha:0, scale: 5, onComplete: () => {intro.style.display = 'none'}})
+            
+        }
+
 
     }
     
