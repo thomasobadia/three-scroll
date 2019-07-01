@@ -728,6 +728,7 @@ const init = () => {
 
 
     function touchStart(event) {
+        console.log("touch")
         event.preventDefault()
         start.x = event.touches[0].pageX;
         start.y = event.touches[0].pageY;
