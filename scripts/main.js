@@ -739,11 +739,39 @@ const init = () => {
     function touchMove(event){
         event.preventDefault()
         offset = {};
-        offset.x = start.x - event.touches[0].pageX;
         offset.y = start.y - event.touches[0].pageY;
         camera.position.z -= offset.y * 0.001;
-        if(camera.position.z > 4 ){
-            camera.position.z = 4 
+        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera);
+        if(loadingComplete){
+            if(!picOpened){
+                TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
+                    progressContainer.style.display = 'none'
+                }})
+                let move = scale(offset.y, -300, 300, -2, 2)
+
+                if(camera.position.z - move <= 4.2){
+                    camera.position.z -= move;
+                } 
+
+                if(camera.position.z - move >= 4){
+                     TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "none"});
+                } 
+                
+            }else {              
+                if(canScroll){
+                    if(offset.y > 0){
+                        toggleImage(nextImage, 0)
+                       
+                    }else{
+                        toggleImage(prevImage, 1)
+    
+                    }
+                    canScroll = false
+                    setTimeout(()=>{ canScroll = true },1000)
+                }
+                        
+            }
+
         }
     
     }
@@ -989,6 +1017,7 @@ const init = () => {
     document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     document.addEventListener("touchstart", touchStart, { passive: false });
     document.addEventListener("touchmove", touchMove, { passive: false });
+    document.addEventListener("touch", handleClick, { passive: false });
     document.addEventListener( 'mousemove', onMouseMove, false );
     document.addEventListener( 'click', handleClick, false );
 
