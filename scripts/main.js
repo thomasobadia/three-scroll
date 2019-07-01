@@ -574,6 +574,8 @@ const init = () => {
     const sidebarCursor = document.querySelector('.sidebar-cursor')
     const intro = document.querySelector('.intro')
     const progress = document.querySelector('.progress')
+    const progressBar = document.querySelector('.progression')
+    const progressNumber = document.querySelector('.progressNumber')
     var nextImage, prevImage
     let canScroll = true;
     let loadingComplete = false
@@ -589,13 +591,13 @@ const init = () => {
     // };
     
     THREE.DefaultLoadingManager.onLoad = function ( ) {
-        progress.innerText = 'Chargement terminé !'
+        // progress.innerText = 'Chargement terminé !'
         onLoadingComplete()
     };
     
     THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-        progress.innerText =  itemsLoaded + ' fichiers chargés sur  ' + itemsTotal + '.'
-        
+        progressNumber.innerText =  Math.floor(itemsLoaded / itemsTotal * 100) +'%'
+        progressBar.style.width = itemsLoaded / itemsTotal * 100 +'%'
     };
     
     THREE.DefaultLoadingManager.onError = function ( url ) {
@@ -742,6 +744,7 @@ const init = () => {
 
     }
     const updateCursor = () => {
+        // TODO : bug Cursor cross on menu
         raycaster.setFromCamera( mouse, camera );
         var intersects = raycaster.intersectObjects( scene.children );
 
@@ -809,7 +812,7 @@ const init = () => {
       }
 
     const updateIntro = (cameraPos) => {
-        opacity = scale(cameraPos,-2,4,0,1)
+        opacity = scale(cameraPos,-1,4,0,1)
         scaleIntro = scale(cameraPos,4,-2,1,10)
         if(scaleIntro < 0.7){scaleIntro = 0.7}
         intro.style.opacity = opacity

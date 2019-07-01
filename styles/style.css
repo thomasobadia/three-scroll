@@ -161,3 +161,26 @@ body {
     margin-top: 20px;
 }
 
+.progress{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.progress-bar{
+    width: 100px;
+    height: 1px;
+    background-color: hsla(0, 0%, 77.7%, 0.3);
+}
+.progression{
+    height: 1px;
+    background: #4075e5;
+    width: 0%;
+    transition: width linear 0.25s;
+}
+.progress-number{
+    margin: 0 10px;
+    
+}
+
