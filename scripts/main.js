@@ -731,11 +731,13 @@ const init = () => {
         event.preventDefault()
         start.x = event.touches[0].pageX;
         start.y = event.touches[0].pageY;
+        handleTouch(start)
     }
     
     function touchMove(event){
         event.preventDefault()
         offset = {};
+        offset.x = start.x - event.touches[0].pageX;
         offset.y = start.y - event.touches[0].pageY;
         camera.position.z -= offset.y * 0.001;
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera);
@@ -988,6 +990,24 @@ const init = () => {
             }
         }
     }
+
+    const handleTouch = (tar) => {
+        raycaster.setFromCamera( tar, camera );
+        var intersects = raycaster.intersectObjects( scene.children );
+        if(picOpened){
+            closeImage()  
+        }else{
+            if(intersects.length){
+                // console.log(intersects[0].object)
+                if(intersects[0].object.type === "Sprite" && !picOpened){
+
+                    openImage(intersects[0].object)
+
+                }
+            }
+        }
+    }
+
 
     const handleClick = () => {
         
