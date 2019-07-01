@@ -537,21 +537,27 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
     for(let j = 0; j< Object.values(dates).length; j++){
         if (j!=0){
             document.querySelector(`#annee-${Object.keys(dates)[j]}`).classList.remove('active')
+            
         }
         if(j == 0 && camera.position.z  > Object.values(dates)[j+1].position ){
             var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
             document.querySelector('.origin').classList.add('active')
-
+            console.log(`origin`)
 
         } else if(j != 0 && camera.position.z -5 < Object.values(dates)[j-1].position && camera.position.z -5 > Object.values(dates)[j].position){
             var value = document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
             document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).classList.add('active')
+            console.log(`#annee-${Object.keys(dates)[j-1]}`)
 
-
-        } 
-        // TODO : bug last slider item
+        }
+        if(camera.position.z - 5  < Object.values(dates)[Object.values(dates).length - 1].position ){
+            var value = document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).offsetTop
+            TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
+            document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).classList.add('active')
+            console.log(`#annee-${Object.keys(dates)[Object.values(dates).length-1]}`)
+        }
     }
 
 }
@@ -566,6 +572,8 @@ const init = () => {
     var raycaster = new THREE.Raycaster();
     let picOpened = false
     let picOpenedCoords = {}
+    
+    const container = document.querySelector('.story-container')
     const overlayContainer = document.querySelector('.year-content-overlay')
     const overlayYear = document.querySelector('.year')
     const overlayContent = document.querySelector('.content')
@@ -574,11 +582,15 @@ const init = () => {
     const sidebarCursor = document.querySelector('.sidebar-cursor')
     const intro = document.querySelector('.intro')
     const progress = document.querySelector('.progress')
+    const progressContainer = document.querySelector('.progress-container')
     const progressBar = document.querySelector('.progression')
     const progressNumber = document.querySelector('.progressNumber')
+    const scrollItem = document.querySelector('.scroll')
     var nextImage, prevImage
     let canScroll = true;
+    let canBounce = true;
     let loadingComplete = false
+
 
     document.querySelector('.origin').addEventListener('click', () => {
         TweenMax.to(camera.position,1, { ease: Power0.ease, z: 4 , overwrite : "none"});
@@ -596,7 +608,7 @@ const init = () => {
     };
     
     THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-        progressNumber.innerText =  Math.floor(itemsLoaded / itemsTotal * 100) +'%'
+        progressNumber.innerText =  Math.floor(itemsLoaded / itemsTotal * 100) +' %'
         progressBar.style.width = itemsLoaded / itemsTotal * 100 +'%'
     };
     
@@ -624,10 +636,14 @@ const init = () => {
     renderer.setSize(windowWidth, windowHeight)
     renderer.shadowMap.enabled = true
     renderer.domElement.id = 'canvas-histoire';
-    document.body.appendChild(renderer.domElement)
+    container.appendChild(renderer.domElement)
 
     const onLoadingComplete = () => {
         loadingComplete = true
+        TweenMax.to(progress,0.5,{opacity:0, onComplete: () =>{
+            // progress.style.display= 'none'
+            TweenMax.to(scrollItem,0.5,{opacity:1})
+        }})
         TweenMax.to(renderer.domElement,1,{opacity:1})
         TweenMax.to(sidebar,1,{opacity:1})
 
@@ -646,6 +662,10 @@ const init = () => {
         // console.log(camera.position.z)
         if(loadingComplete){
             if(!picOpened){
+                TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
+                    progressContainer.style.display = 'none'
+                }})
+
                 // console.log(event.deltaY)
                 // let distance = event.deltaY /20
                 // console.log(distance)
@@ -659,7 +679,6 @@ const init = () => {
                 //     newPosition = 4
                 // }
 
-                // // TODO : rebond si trop loin
 
 
                 // TweenMax.to(camera.position,0.5, { ease: Power0.easeInOut, z: newPosition , overwrite : "none"});
@@ -667,14 +686,12 @@ const init = () => {
 
                 let move = scale(event.deltaY, -300, 300, -2, 2)
 
-                if(camera.position.z - move <= 5){
+                if(camera.position.z - move <= 4.2){
                     camera.position.z -= move;
                 } 
 
                 if(camera.position.z - move >= 4){
-                    console.log('trop loin')
-                    // camera.position.z = 4
-                    TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.1, overwrite : "none"});
+                     TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "none",onComplete:()=>{canBounce = false}});
                 } 
                 
 
@@ -690,13 +707,13 @@ const init = () => {
     
                         // setTimeout(()=>{openImage(nextImage)},750)
                         // openImage(nextImage)
-                        toggleImage(nextImage)
+                        toggleImage(nextImage, 0)
                        
                     
                     }else{
                         // setTimeout(()=>{openImage(prevImage)},750)
                         // openImage(prevImage)
-                        toggleImage(prevImage)
+                        toggleImage(prevImage, 1)
     
                     }
                     canScroll = false
@@ -744,12 +761,11 @@ const init = () => {
 
     }
     const updateCursor = () => {
-        // TODO : bug Cursor cross on menu
         raycaster.setFromCamera( mouse, camera );
         var intersects = raycaster.intersectObjects( scene.children );
 
         if(picOpened){
-            document.querySelector('body').style.cursor = `url(assets/close_cursor.svg), auto`
+            document.querySelector('body').style.cursor = `url(assets/close_cursor.svg) 25 25, auto`
 
         } else{
             if(intersects.length && intersects[0].object.type === "Sprite"){
@@ -842,7 +858,7 @@ const init = () => {
         picOpened = false
     }
 
-    const toggleImage = (obj) => {
+    const toggleImage = (obj, way) => {
         picOpened = true
         picOpenedCoords.name = obj.name
         picOpenedCoords.x = obj.position.x
@@ -854,23 +870,47 @@ const init = () => {
         
         TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:obj.position.x * 0.60, y:obj.position.y, z: obj.position.z + 1.5 });
     
-        TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:0, scale: 0.8, onComplete : () => {
-            overlayYear.textContent = obj.name
-            overlayContent.textContent = obj.content
-            if(picOpenedCoords.x > 0){
-                overlayContent.classList.add('content-left')
-                if(overlayContent.classList.contains('content-right')){
-                    overlayContent.classList.remove('content-right')
+        if(way === 1 ){
+                TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:0, scale: 0.8, onComplete : () => {
+                overlayYear.textContent = obj.name
+                overlayContent.textContent = obj.content
+                overlayContainer.style.transform = 'scale(0)'
+                if(picOpenedCoords.x > 0){
+                    overlayContent.classList.add('content-left')
+                    if(overlayContent.classList.contains('content-right')){
+                        overlayContent.classList.remove('content-right')
+                    }
+                    
+                }else {
+                    overlayContent.classList.add('content-right')
+                    if(overlayContent.classList.contains('content-left')){
+                        overlayContent.classList.remove('content-left')
+                    }
                 }
-                
-            }else {
-                overlayContent.classList.add('content-right')
-                if(overlayContent.classList.contains('content-left')){
-                    overlayContent.classList.remove('content-left')
+                TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:1, scale: 1});
+            }});
+        }else {
+            TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:0, scale: 1.2, onComplete : () => {
+                overlayYear.textContent = obj.name
+                overlayContent.textContent = obj.content
+                if(picOpenedCoords.x > 0){
+                    overlayContent.classList.add('content-left')
+                    if(overlayContent.classList.contains('content-right')){
+                        overlayContent.classList.remove('content-right')
+                    }
+                    
+                }else {
+                    overlayContent.classList.add('content-right')
+                    if(overlayContent.classList.contains('content-left')){
+                        overlayContent.classList.remove('content-left')
+                    }
                 }
-            }
-            TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:1, scale: 1});
-        }});
+                TweenMax.fromTo(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:0, scale: 0.8},{ease: Power2.easeInOut, opacity:1, scale: 1});
+            }});
+        }
+        
+
+      
     
         var toShow = scene.children.filter(mesh =>  mesh.type !== "PerspectiveCamera")
         toShow.map( mesh => { 

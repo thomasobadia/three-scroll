@@ -23,6 +23,11 @@ canvas{
     height: 100%;
 }
 
+.story-container{
+    position: relative;
+    height: 100%;
+}
+
 body,html{
     margin: 0;
     padding: 0;
@@ -94,7 +99,7 @@ body {
     align-items: center;
     position: fixed;
     right: 0px;
-    z-index: 1;
+    cursor:auto;
     align-items: center;
     border-left: 1px solid hsla(0, 0%, 58.4%, 0.3);
 }
@@ -177,10 +182,22 @@ body {
     height: 1px;
     background: #4075e5;
     width: 0%;
-    transition: width linear 0.25s;
+    /* transition: width linear 0.25s; */
+    /* TODO fix transition progress bar */
 }
 .progress-number{
     margin: 0 10px;
     
 }
-
+.scroll {
+    opacity: 0;
+    margin-top: 100px;
+}
+.progress-container{
+    z-index:3;
+    position: absolute;
+    text-align: center;
+    bottom: 2%;
+    left: 50%;
+    transform:translateX(-50%);
+}
