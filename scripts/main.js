@@ -37,73 +37,73 @@ const dates = {
         },
     
     ],
-    // 1910: [
-    //     {
-    //         date: 1912,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1913,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1914,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1915,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1916,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1917,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
+    1910: [
+        {
+            date: 1912,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1913,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1914,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1915,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1916,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1917,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
         
-    // ],
-    // 1920: [
-    //     {
-    //         date: 1922,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1925,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    // ],
-    // 1930: [
-    //     {
-    //         date: 1932,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1935,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    // ],
+    ],
+    1920: [
+        {
+            date: 1922,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1925,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+    ],
+    1930: [
+        {
+            date: 1932,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1935,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+    ],
     // 1940: [
     //     {
     //         date: 1942,
