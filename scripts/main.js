@@ -1034,7 +1034,6 @@ const init = () => {
     document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     document.addEventListener("touchstart", touchStart, { passive: false });
     document.addEventListener("touchmove", touchMove, { passive: false });
-    document.addEventListener("touchstart", handleClick, { passive: false });
     document.addEventListener( 'mousemove', onMouseMove, false );
     document.addEventListener( 'click', handleClick, false );
 
