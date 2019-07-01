@@ -543,20 +543,17 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
             var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
             document.querySelector('.origin').classList.add('active')
-            console.log(`origin`)
 
         } else if(j != 0 && camera.position.z -5 < Object.values(dates)[j-1].position && camera.position.z -5 > Object.values(dates)[j].position){
             var value = document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
             document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).classList.add('active')
-            console.log(`#annee-${Object.keys(dates)[j-1]}`)
 
         }
         if(camera.position.z - 5  < Object.values(dates)[Object.values(dates).length - 1].position ){
             var value = document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
             document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).classList.add('active')
-            console.log(`#annee-${Object.keys(dates)[Object.values(dates).length-1]}`)
         }
     }
 
@@ -1017,7 +1014,7 @@ const init = () => {
     document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     document.addEventListener("touchstart", touchStart, { passive: false });
     document.addEventListener("touchmove", touchMove, { passive: false });
-    document.addEventListener("touch", handleClick, { passive: false });
+    document.addEventListener("touchstart", handleClick, { passive: false });
     document.addEventListener( 'mousemove', onMouseMove, false );
     document.addEventListener( 'click', handleClick, false );
 
