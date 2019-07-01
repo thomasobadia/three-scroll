@@ -730,8 +730,10 @@ const init = () => {
     function touchStart(event) {
         console.log("touch")
         event.preventDefault()
-        start.x = event.touches[0].pageX;
-        start.y = event.touches[0].pageY;
+        // start.x = event.touches[0].pageX;
+        // start.y = event.touches[0].pageY;
+        start.x = +(event.targetTouches[0].pageX / window.innerWidth) * 2 +-1;
+        start.y = -(event.targetTouches[0].pageY / window.innerHeight) * 2 + 1;
         handleTouch(start)
     }
     
@@ -750,7 +752,7 @@ const init = () => {
                 let move = scale(offset.y, -300, 300, -2, 2)
 
                 if(camera.position.z - move <= 4.2){
-                    camera.position.z -= move;
+                    camera.position.z -= move / 10;
                 } 
 
                 if(camera.position.z - move >= 4){
@@ -977,6 +979,7 @@ const init = () => {
 
 
     const toggleImageContent = () => {
+        console.log(raycaster)
         var intersects = raycaster.intersectObjects( scene.children );
         if(picOpened){
             closeImage()  
@@ -993,8 +996,11 @@ const init = () => {
     }
 
     const handleTouch = (tar) => {
-        raycaster.setFromCamera( tar, camera );
+        
+        raycaster.setFromCamera( start, camera );
+        console.log(raycaster)
         var intersects = raycaster.intersectObjects( scene.children );
+        console.log(intersects)
         if(picOpened){
             closeImage()  
         }else{
