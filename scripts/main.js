@@ -531,7 +531,6 @@ const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
 
 const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
     let years = Array.from(sidebarContainer.children)
-    // TODO : Set class active on menu elements
     document.querySelector('.origin').classList.remove('active')
     for(let j = 0; j< Object.values(dates).length; j++){
         if (j!=0){
@@ -655,16 +654,18 @@ const init = () => {
             }else {
                 
                 if(canScroll){
-                    closeImage()
+                    // closeImage()
                     if(event.deltaY > 0){
     
-                        
-                        openImage(nextImage)
+                        // setTimeout(()=>{openImage(nextImage)},750)
+                        // openImage(nextImage)
+                        toggleImage(nextImage)
                        
                     
                     }else{
-    
-                        openImage(prevImage)
+                        // setTimeout(()=>{openImage(prevImage)},750)
+                        // openImage(prevImage)
+                        toggleImage(prevImage)
     
                     }
                     canScroll = false
@@ -752,17 +753,10 @@ const init = () => {
         }
         TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:obj.position.x * 0.60, y:obj.position.y, z: obj.position.z + 1.5 });
         overlayContainer.style.display = 'block'
-        // TODO ADD DELAY
-        // TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, delay: 0.5, opacity:1, scale: 1});
-        TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut,  opacity:1, scale: 1});
-
+        TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, delay: 0.75, opacity:1, scale: 1});
         var toHide = scene.children.filter(mesh => mesh.uuid !== obj.uuid && mesh.type !== "PerspectiveCamera" )
-        console.log(toHide)
-        // toHide.map( mesh => { mesh.material.opacity = 0})
         toHide.map( mesh => { TweenMax.to(mesh.material,1, {ease: Power2.easeInOut, opacity:0.1 })})
 
-        console.log(scene.children)
-        console.log(obj.uuid)
         for (let i = 0 ; i < scene.children.length; i++){
             if(scene.children[i].uuid == obj.uuid && scene.children[i].type === "Sprite"){
                 if(i > 0 && i < scene.children.length){
@@ -789,6 +783,59 @@ const init = () => {
         TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:0, y:0, z: picOpenedCoords.z + 2 });
         TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainer.style.display = 'none'});
         picOpened = false
+    }
+
+    const toggleImage = (obj) => {
+        picOpened = true
+        picOpenedCoords.name = obj.name
+        picOpenedCoords.x = obj.position.x
+        picOpenedCoords.y = obj.position.y
+        picOpenedCoords.z = obj.position.z
+        
+        document.querySelector('body').style.cursor ="pointer";   
+        
+        
+        TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:obj.position.x * 0.60, y:obj.position.y, z: obj.position.z + 1.5 });
+    
+        TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:0, scale: 0.8, onComplete : () => {
+            overlayYear.textContent = obj.name
+            overlayContent.textContent = obj.content
+            if(picOpenedCoords.x > 0){
+                overlayContent.classList.add('content-left')
+                if(overlayContent.classList.contains('content-right')){
+                    overlayContent.classList.remove('content-right')
+                }
+                
+            }else {
+                overlayContent.classList.add('content-right')
+                if(overlayContent.classList.contains('content-left')){
+                    overlayContent.classList.remove('content-left')
+                }
+            }
+            TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:1, scale: 1});
+        }});
+    
+        var toShow = scene.children.filter(mesh =>  mesh.type !== "PerspectiveCamera")
+        toShow.map( mesh => { TweenMax.to(mesh.material,0.5, {ease: Power2.easeInOut, opacity:1 })})
+        var toHide = scene.children.filter(mesh => mesh.uuid !== obj.uuid && mesh.type !== "PerspectiveCamera" )
+        toHide.map( mesh => { TweenMax.to(mesh.material,1, {ease: Power2.easeInOut, opacity:0.1 })})
+    
+        for (let i = 0 ; i < scene.children.length; i++){
+            if(scene.children[i].uuid == obj.uuid && scene.children[i].type === "Sprite"){
+                if(i > 0 && i < scene.children.length){
+                    nextImage = scene.children[i+1]
+                    prevImage = scene.children[i-1]
+                } else if (i = 0) {
+                    nextImage = scene.children[i+1]
+                    prevImage = scene.children[i]
+                }else  {
+                    nextImage = scene.children[i]
+                    prevImage = scene.children[i - 1]
+                }
+                
+            }
+        }
+    
     }
 
     
@@ -881,6 +928,15 @@ const init = () => {
 
 
 init()
+
+
+
+
+
+
+
+
+
 
 
 
