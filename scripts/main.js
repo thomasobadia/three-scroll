@@ -5,6 +5,8 @@ const spaceBetweenElements = 2
 const spaceBetweenYearAndText = 1
 let position = 0
 const elementsPosition = [{x:-2,y:1},{x:2,y:1}, {x:2,y:-1}, {x:-2,y:-1}]
+// TODO : un peu moins large 
+
 // TODO : Random sur le premier element d'une année
 
 const dates = {
@@ -34,7 +36,7 @@ const dates = {
             content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
         },
     
-    // ],
+    ],
     // 1910: [
     //     {
     //         date: 1912,
@@ -422,6 +424,7 @@ const addVideo = (scene, url, size, position, name, content) => {
     
 }
 
+
 function normalize(val, max, min) { return (val - min) / (max - min); }
 
 
@@ -650,6 +653,9 @@ const init = () => {
                     console.log('trop loin')
                     newPosition = 4
                 }
+                // TODO : rebond si trop loin
+
+                // TODO : un peu plus loin et un peu plus long
                 TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: newPosition , overwrite : "none"});
             }else {
                 
@@ -902,6 +908,8 @@ const init = () => {
         if(camera.position.z >= 3){
             intro.style.display = 'flex'
             TweenMax.to(intro,0.5,{autoAlpha:1, scale: 1})
+            // TODO : Intro on camera z 
+            // TODO : bug année 100% on closeImage
             
 
         }else{
