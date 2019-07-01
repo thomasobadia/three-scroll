@@ -662,6 +662,8 @@ const init = () => {
     function onMouseWheel( event) {
         event.preventDefault();
         // console.log(camera.position.z)
+        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera);
+
         if(loadingComplete){
             if(!picOpened){
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
@@ -1002,7 +1004,6 @@ const init = () => {
 
     const animate = () => {
         window.requestAnimationFrame(animate)
-        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera);
         renderer.render(scene, camera)
         updateIntro(camera.position.z)
 
