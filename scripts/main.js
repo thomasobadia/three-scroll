@@ -1033,8 +1033,10 @@ const init = () => {
     const animate = () => {
         window.requestAnimationFrame(animate)
         renderer.render(scene, camera)
-        if(camera.position.z > 3){
-         updateIntro(camera.position.z)
+        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera)
+
+        if(camera.position.z >= -2){
+            updateIntro(camera.position.z)
 
         }
         
@@ -1043,7 +1045,6 @@ const init = () => {
     
 
     addItems(dates, scene, loader, sidebarContainer, camera, sidebarCursor)
-    updateTimeLinePosition(sidebarContainer, sidebarCursor, camera)
     animate()
 
 
