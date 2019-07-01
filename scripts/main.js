@@ -411,7 +411,7 @@ const addVideo = (scene, url, size, position, name, content) => {
     texture.format = THREE.RGBFormat;
     texture.crossOrigin = 'anonymous';
     var video = new THREE.Mesh(
-        new THREE.PlaneGeometry(size.w, size.h),
+        new THREE.PlaneBufferGeometry(size.w, size.h),
         new THREE.MeshBasicMaterial({ map: texture }));
     video.position.set(position.x,position.y,position.z);
     video.name = name
@@ -525,8 +525,9 @@ const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor) => {
 const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
 
     var goodone = Object.entries(obj).filter(entry => entry[0] == year)
-    console.log(goodone)
-    TweenMax.to(camera.position,1, { ease: Power0.ease, z: goodone[0][1].position + 4 , overwrite : "none"});
+    // console.log(goodone[0][1].position)
+    // console.log(1 - goodone[0][1].position / 100)
+    TweenMax.to(camera.position,2  , { ease: Power4.easeOut, z: goodone[0][1].position + 4 , overwrite : "none"});
     
 }
 
@@ -539,7 +540,7 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
             document.querySelector(`#annee-${Object.keys(dates)[j]}`).classList.remove('active')
             
         }
-        if(j == 0 && camera.position.z  > Object.values(dates)[j+1].position ){
+        if(j == 0 && camera.position.z -5 > Object.values(dates)[j+1].position ){
             var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
             TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
             document.querySelector('.origin').classList.add('active')
@@ -652,6 +653,7 @@ const init = () => {
 
     scene.background = new THREE.TextureLoader().load(path + "background.png")
     scene.fog = new THREE.Fog( 0x0C1015,2,10);
+    // TODO : Opti fog
 
 
     var start = {x:0,y:0};
@@ -691,7 +693,7 @@ const init = () => {
                 } 
 
                 if(camera.position.z - move >= 4){
-                     TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "none",onComplete:()=>{canBounce = false}});
+                     TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "none"});
                 } 
                 
 
