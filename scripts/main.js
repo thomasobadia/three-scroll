@@ -712,7 +712,7 @@ const init = () => {
                     progressContainer.style.display = 'none'
                 }})
 
-                let move = scale(event.deltaY, -300, 300, -50, 50)
+                let move = scale(event.originalEvent.deltaY, -300, 300, -50, 50)
 
                 if(camera.position.z - move <= 4){
                     
@@ -732,7 +732,7 @@ const init = () => {
             }else {
                 
                 if(canScroll){
-                    if(event.deltaY > 0){
+                    if(event.originalEvent.deltaY > 0){
                         toggleImage(nextImage, 0)
                        
                     
@@ -1150,46 +1150,35 @@ init()
 
 
 
+// var delta,memo_delta;
+// var isFirefox = (navigator.userAgent.indexOf("Firefox") != -1) ;
+
+
+
+// var handleWheel = function (event) 
+// {
+//  var e = window.event || event;
+//  delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+//  change_slide(delta,e.wheelDelta);
+//  e.preventDefault();
+// };
 
 
 
 
-
-Jibe
-
-
-
-
-$
-var delta,memo_delta;
-var isFirefox = (navigator.userAgent.indexOf("Firefox") != -1) ;
-
-
-
-var handleWheel = function (event) 
-{
- var e = window.event || event;
- delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
- change_slide(delta,e.wheelDelta);
- e.preventDefault();
-};
-
-
-
-
-var addMouseWheelEventListener = function (scrollHandler)
-{
- if (window.addEventListener) 
- {
-  // IE9+, Chrome, Safari, Opera
-  window.addEventListener("mousewheel", scrollHandler, false);
-  // Firefox
-  window.addEventListener("DOMMouseScroll", scrollHandler, false);
- } 
- else 
- {
-  // // IE 6/7/8
-  window.attachEvent("onmousewheel", scrollHandler);
- }
-}
-addMouseWheelEventListener(handleWheel);
+// var addMouseWheelEventListener = function (scrollHandler)
+// {
+//  if (window.addEventListener) 
+//  {
+//   // IE9+, Chrome, Safari, Opera
+//   window.addEventListener("mousewheel", scrollHandler, false);
+//   // Firefox
+//   window.addEventListener("DOMMouseScroll", scrollHandler, false);
+//  } 
+//  else 
+//  {
+//   // // IE 6/7/8
+//   window.attachEvent("onmousewheel", scrollHandler);
+//  }
+// }
+// addMouseWheelEventListener(handleWheel);
