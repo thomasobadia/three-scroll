@@ -205,6 +205,8 @@ body {
 .mobile-overlay{
     position: relative;
     display: flex;
+    overscroll-behavior-y:none;
+    -webkit-overflow-scrolling: touch;
     flex-direction: column;
     align-self: center;
     z-index: 5;
@@ -247,7 +249,8 @@ body {
 .mobile-overlay-content{
     font-family: Montserrat-Regular;
     color:#fff;
-    font-size: 14px;
+    font-size: 18px;
+    line-height: 27px;
     margin-top: 50px;
     margin-bottom: 30px;
 }
