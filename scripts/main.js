@@ -1075,8 +1075,8 @@ const init = () => {
         }        
         console.log('beta' + baseBeta - event.beta /100)
         console.log('alpha' + baseAlpha - event.alpha /100)
-        camera.rotation.x +=  baseBeta - event.beta /100
-        camera.rotation.y +=  baseAlpha - event.alpha /100
+        camera.rotation.x +=  baseBeta - event.beta /10000
+        camera.rotation.y +=  baseAlpha - event.alpha /10000
     }
 
     window.addEventListener('deviceorientation', (e) =>{handleOrientation(e,initialOrientation)}, false);
