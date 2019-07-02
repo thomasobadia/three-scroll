@@ -1067,7 +1067,7 @@ const init = () => {
   
 
     // TODO : Handle Mobile Orientation
-    const handleOrientation = (event) => {
+    const handleOrientation = (event,initialOrientation) => {
         if(initialOrientation){
             let baseBeta = event.beta
             let baseAlpha = event.alpha
@@ -1077,7 +1077,7 @@ const init = () => {
         camera.rotation.y =  baseAlpha - event.alpha /100
     }
 
-    window.addEventListener('deviceorientation', handleOrientation, false);
+    window.addEventListener('deviceorientation', (e) =>{handleOrientation(e,initialOrientation)}, false);
 
     
     document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
