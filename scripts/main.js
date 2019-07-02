@@ -483,7 +483,6 @@ const addItemsMobile = (obj,scene,loader, sidebarContainer,camera, sidebarCursor
         console.log(position)
 
 
-<<<<<<< HEAD
         for (let j = 0; j <Object.values(obj)[i].length; j++){
             if(j == 0 && i !== 0){
                 position -= spaceAfterYears
@@ -501,63 +500,6 @@ const addItemsMobile = (obj,scene,loader, sidebarContainer,camera, sidebarCursor
             }
         }
 
-=======
-      position -= spaceBetweenElements;
-
-      switch (values[i][j].type) {
-        case "picture":
-          addPicture(
-            scene,
-            path + values[i][j].url,
-            {
-              x: elementsPositionMobile[j % elementsPositionMobile.length].x,
-              y: elementsPositionMobile[j % elementsPositionMobile.length].y,
-              z: position
-            },
-            values[i][j].date,
-            values[i][j].content
-          );
-          break;
-
-        case "video":
-          addVideo(
-            scene,
-            path + values[i][j].url,
-            {
-              w: (2 * 16) / 9,
-              h: 2
-            },
-            {
-              x: elementsPositionMobile[j % elementsPositionMobile.length].x,
-              y: elementsPositionMobile[j % elementsPositionMobile.length].y,
-              z: position
-            },
-            values[i][j].date,
-            Object.values(dates)[i][j].content
-          );
-          break;
-
-        default:
-          console.log("error");
-      }
-    }
-  }
-};
-
-var addItems = function addItems(
-  obj,
-  scene,
-  loader,
-  sidebarContainer,
-  camera,
-  sidebarCursor
-) {
-  for (var i = 0; i < values.length; i++) {
-    if (i > 0) {
-      position -= spaceBetweenYears;
-      addDate(scene, loader, Object.keys(obj)[i], position);
-      values[i].position = position;
->>>>>>> parent of c9c9b46... ie11
     }
 }
 
@@ -1224,7 +1166,6 @@ const init = () => {
         
 
     }
-<<<<<<< HEAD
     
     if(window.innerHeight > window.innerWidth){
         addItemsMobile(dates, scene, loader, sidebarContainer, camera, sidebarCursor)
@@ -1255,28 +1196,6 @@ init()
 
 
 // var delta,memo_delta;
-=======
-  };
-
-  if (window.innerHeight > window.innerWidth) {
-    addItemsMobile(
-      dates,
-      scene,
-      loader,
-      sidebarContainer,
-      camera,
-      sidebarCursor
-    );
-  } else {
-    addItems(dates, scene, loader, sidebarContainer, camera, sidebarCursor);
-  }
-
-  animate();
-  console.log(scene.children);
-};
-
-init(); // var delta,memo_delta;
->>>>>>> parent of c9c9b46... ie11
 // var isFirefox = (navigator.userAgent.indexOf("Firefox") != -1) ;
 
 
