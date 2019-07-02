@@ -581,41 +581,41 @@ var addItemsMobile = function addItemsMobile(
   camera,
   sidebarCursor
 ) {
-  for (var i = 0; i < Object.values(obj).length; i++) {
+  for (var i = 0; i < values.length; i++) {
     if (i > 0) {
       position -= spaceBetweenYears;
       addDate(scene, loader, Object.keys(obj)[i], position);
-      Object.values(obj)[i].position = position;
+      values[i].position = position;
     }
 
     console.log(position);
 
-    for (var j = 0; j < Object.values(obj)[i].length; j++) {
+    for (var j = 0; j < values[i].length; j++) {
       if (j == 0 && i !== 0) {
         position -= spaceAfterYears;
       }
 
       position -= spaceBetweenElements;
 
-      switch (Object.values(obj)[i][j].type) {
+      switch (values[i][j].type) {
         case "picture":
           addPicture(
             scene,
-            path + Object.values(obj)[i][j].url,
+            path + values[i][j].url,
             {
               x: elementsPositionMobile[j % elementsPositionMobile.length].x,
               y: elementsPositionMobile[j % elementsPositionMobile.length].y,
               z: position
             },
-            Object.values(obj)[i][j].date,
-            Object.values(obj)[i][j].content
+            values[i][j].date,
+            values[i][j].content
           );
           break;
 
         case "video":
           addVideo(
             scene,
-            path + Object.values(obj)[i][j].url,
+            path + values[i][j].url,
             {
               w: (2 * 16) / 9,
               h: 2
@@ -625,7 +625,7 @@ var addItemsMobile = function addItemsMobile(
               y: elementsPositionMobile[j % elementsPositionMobile.length].y,
               z: position
             },
-            Object.values(obj)[i][j].date,
+            values[i][j].date,
             Object.values(dates)[i][j].content
           );
           break;
@@ -645,41 +645,41 @@ var addItems = function addItems(
   camera,
   sidebarCursor
 ) {
-  for (var i = 0; i < Object.values(obj).length; i++) {
+  for (var i = 0; i < values.length; i++) {
     if (i > 0) {
       position -= spaceBetweenYears;
       addDate(scene, loader, Object.keys(obj)[i], position);
-      Object.values(obj)[i].position = position;
+      values[i].position = position;
     }
 
     console.log(position);
 
-    for (var j = 0; j < Object.values(obj)[i].length; j++) {
+    for (var j = 0; j < values[i].length; j++) {
       if (j == 0 && i !== 0) {
         position -= spaceAfterYears;
       }
 
       position -= spaceBetweenElements;
 
-      switch (Object.values(obj)[i][j].type) {
+      switch (values[i][j].type) {
         case "picture":
           addPicture(
             scene,
-            path + Object.values(obj)[i][j].url,
+            path + values[i][j].url,
             {
               x: elementsPosition[j % elementsPosition.length].x,
               y: elementsPosition[j % elementsPosition.length].y,
               z: position
             },
-            Object.values(obj)[i][j].date,
-            Object.values(obj)[i][j].content
+            values[i][j].date,
+            values[i][j].content
           );
           break;
 
         case "video":
           addVideo(
             scene,
-            path + Object.values(obj)[i][j].url,
+            path + values[i][j].url,
             {
               w: (2 * 16) / 9,
               h: 2
@@ -689,7 +689,7 @@ var addItems = function addItems(
               y: elementsPosition[j % elementsPosition.length].y,
               z: position
             },
-            Object.values(obj)[i][j].date,
+            values[i][j].date,
             Object.values(dates)[i][j].content
           );
           break;
@@ -722,7 +722,7 @@ var createTimeLine = function createTimeLine(
     });
   };
 
-  for (var i = 1; i < Object.values(obj).length; i++) {
+  for (var i = 1; i < values.length; i++) {
     var year;
 
     _loop(i);
@@ -867,6 +867,9 @@ var init = function init() {
   var canBounce = true;
   var loadingComplete = false;
   var initialOrientation = true;
+  var values = Object.keys(dates).map(function(e) {
+    return obj[e]
+  })
   document.querySelector(".origin").addEventListener("click", function() {
     TweenMax.to(camera.position, 1, {
       ease: Power0.ease,
