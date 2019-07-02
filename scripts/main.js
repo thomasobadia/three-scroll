@@ -699,54 +699,99 @@ const init = () => {
     var start = {x:0,y:0};
 
 
-    function onMouseWheel( event) {
+    function onMouseWheel(event) {
 
         event.preventDefault();
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar);
+        
+        if ( typeof event.deltaY !== 'undefined'){
+            if(loadingComplete){
 
-        if(loadingComplete){
-
-            if(!picOpened){
-
-                TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
-                    progressContainer.style.display = 'none'
-                }})
-
-                let move = scale(event.originalEvent.deltaY, -300, 300, -50, 50)
-
-                if(camera.position.z - move <= 4){
-                    
-                    // camera.position.z -= move;
-                    TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "all"});
-
-
-                } 
-
-                if(camera.position.z - move >= 4){
-                    // bouc
-                    // camera.position.z = 4;
-                    TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "all"});
-                
-                } 
-                
-            }else {
-                
-                if(canScroll){
-                    if(event.originalEvent.deltaY > 0){
-                        toggleImage(nextImage, 0)
-                       
-                    
-                    }else{
-                        toggleImage(prevImage, 1)
+                if(!picOpened){
     
-                    }
-                    canScroll = false
-                    setTimeout(()=>{ canScroll = true },1000)
-                }
+                    TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
+                        progressContainer.style.display = 'none'
+                    }})
+                    
+                    let move = scale(event.deltaY, -300, 300, -50, 50)
+    
+                    if(camera.position.z - move <= 4){
                         
+                        // camera.position.z -= move;
+                        TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "all"});
+    
+    
+                    } 
+    
+                    if(camera.position.z - move >= 4){
+                        // camera.position.z = 4;
+                        TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "all"});
+                    
+                    } 
+                    
+                }else {
+                    
+                    if(canScroll){
+                        if(event.deltaY > 0){
+                            toggleImage(nextImage, 0)
+                           
+                        
+                        }else{
+                            toggleImage(prevImage, 1)
+        
+                        }
+                        canScroll = false
+                        setTimeout(()=>{ canScroll = true },1000)
+                    }
+                            
+                }
+    
             }
+        }else{
+            if(loadingComplete){
 
+                if(!picOpened){
+    
+                    TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
+                        progressContainer.style.display = 'none'
+                    }})
+                    
+                    let move = scale(event.detail, -50, 50, -80, 80)
+    
+                    if(camera.position.z - move <= 4){
+                        
+                        // camera.position.z -= move;
+                        TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "all"});
+    
+    
+                    } 
+    
+                    if(camera.position.z - move >= 4){
+                        // camera.position.z = 4;
+                        TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "all"});
+                    
+                    } 
+                    
+                }else {
+                    
+                    if(canScroll){
+                        if(event.detail > 0){
+                            toggleImage(nextImage, 0)
+                           
+                        
+                        }else{
+                            toggleImage(prevImage, 1)
+        
+                        }
+                        canScroll = false
+                        setTimeout(()=>{ canScroll = true },1000)
+                    }
+                            
+                }
+    
+            }
         }
+        
         
     }
 
