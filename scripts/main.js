@@ -700,63 +700,43 @@ const init = () => {
 
 
     function onMouseWheel( event) {
+
         event.preventDefault();
-        // console.log(camera.position.z)
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar);
 
         if(loadingComplete){
+
             if(!picOpened){
+
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
                     progressContainer.style.display = 'none'
                 }})
 
-                // console.log(event.deltaY)
-                // let distance = event.deltaY /20
-                // console.log(distance)
-                // if (distance < 1 && distance > 0) {distance = 1}
-                // if (distance > - 1 && distance < 0) {distance =  - 1}
+                let move = scale(event.deltaY, -300, 300, -50, 50)
 
-                // let newPosition = camera.position.z - distance     
-
-                // if(newPosition >= 4){
-                //     console.log('trop loin')
-                //     newPosition = 4
-                // }
+                if(camera.position.z - move <= 4){
+                    
+                    // camera.position.z -= move;
+                    TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "all"});
 
 
-
-                // TweenMax.to(camera.position,0.5, { ease: Power0.easeInOut, z: newPosition , overwrite : "none"});
-                // -----------------------------------------
-
-                let move = scale(event.deltaY, -300, 300, -2, 2)
-
-                if(camera.position.z - move <= 4.2){
-                    camera.position.z -= move;
                 } 
 
                 if(camera.position.z - move >= 4){
-                     TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "none"});
+                    // bouc
+                    // camera.position.z = 4;
+                    TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "all"});
+                
                 } 
                 
-
-    
-                // TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: '-=' + move , overwrite : "none"});
-
-
             }else {
                 
                 if(canScroll){
-                    // closeImage()
                     if(event.deltaY > 0){
-    
-                        // setTimeout(()=>{openImage(nextImage)},750)
-                        // openImage(nextImage)
                         toggleImage(nextImage, 0)
                        
                     
                     }else{
-                        // setTimeout(()=>{openImage(prevImage)},750)
-                        // openImage(prevImage)
                         toggleImage(prevImage, 1)
     
                     }
