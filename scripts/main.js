@@ -5,6 +5,8 @@ const spaceBetweenElements = 2
 const spaceBetweenYearAndText = 1
 let position = 0
 const elementsPosition = [{x:-1.5,y:1},{x:1.5,y:1}, {x:1.5,y:-1}, {x:-1.5,y:-1}]
+const elementsPositionMobile = [{x:1,y:-1.5},{x:1,y:1.5}, {x:-1,y:1.5}, {x:-1,y:-1.5}]
+
 
 // TODO : Random sur le premier element d'une année
 
@@ -470,7 +472,7 @@ const addDate = (scene, loader, date, position) => {
     addText(scene,loader,'assets/Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:position+spaceBetweenYearAndText}, 0xffffff, 1)
 }
 
-const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
+const addItemsMobile = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
     for(let i = 0; i < Object.values(obj).length; i++){
         if (i > 0){
             position -= spaceBetweenYears
@@ -480,6 +482,36 @@ const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
        
         console.log(position)
 
+
+        for (let j = 0; j <Object.values(obj)[i].length; j++){
+            if(j == 0 && i !== 0){
+                position -= spaceAfterYears
+            }
+            position -= spaceBetweenElements
+            switch (Object.values(obj)[i][j].type){
+                case 'picture':
+                    addPicture(scene, path + Object.values(obj)[i][j].url, {x: elementsPositionMobile[j%elementsPositionMobile.length].x, y:elementsPositionMobile[j%elementsPositionMobile.length].y, z:position}, Object.values(obj)[i][j].date, Object.values(obj)[i][j].content)
+                    break;
+                case 'video':
+                    addVideo(scene,path + Object.values(obj)[i][j].url, {w:2*16/9, h:2}, {x: elementsPositionMobile[j%elementsPositionMobile.length].x, y:elementsPositionMobile[j%elementsPositionMobile.length].y,z:position}, Object.values(obj)[i][j].date, Object.values(dates)[i][j].content)
+                    break;
+                default:
+                    console.log('error')
+            }
+        }
+
+    }
+}
+
+const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
+    for(let i = 0; i < Object.values(obj).length; i++){
+        if (i > 0){
+            position -= spaceBetweenYears
+            addDate(scene,loader, Object.keys(obj)[i],position)
+            Object.values(obj)[i].position = position
+        }
+       
+        console.log(position)
 
         for (let j = 0; j <Object.values(obj)[i].length; j++){
             if(j == 0 && i !== 0){
@@ -500,6 +532,7 @@ const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
 
     }
     createTimeLine(obj, sidebarContainer,camera, sidebarCursor)
+
 }
 
 const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor) => {
@@ -512,7 +545,7 @@ const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor) => {
         sidebarContainer.appendChild(year)
         year.addEventListener('click', () => {
             jumpTo(obj, Object.keys(obj)[i],camera, sidebarContainer, sidebarCursor)
-            updateTimeLinePosition(sidebarContainer, sidebarCursor, camera)
+            updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
             // TweenMax.to(document.querySelector('.intro'),0.5,{autoAlpha:0, scale: 5, onComplete: () =>{intro.style.display = 'none'}})
             
 
@@ -531,31 +564,36 @@ const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
 }
 
 
-const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera) => {
-    let years = Array.from(sidebarContainer.children)
-    document.querySelector('.origin').classList.remove('active')
-    for(let j = 0; j< Object.values(dates).length; j++){
-        if (j!=0){
-            document.querySelector(`#annee-${Object.keys(dates)[j]}`).classList.remove('active')
-            
+const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar) => {
+    if(window.innerHeight < window.innerWidth){
+        let years = Array.from(sidebarContainer.children)
+        document.querySelector('.origin').classList.remove('active')
+        for(let j = 0; j< Object.values(dates).length; j++){
+            if (j!=0){
+                document.querySelector(`#annee-${Object.keys(dates)[j]}`).classList.remove('active')
+                
+            }
+            if(j == 0 && camera.position.z -5 > Object.values(dates)[j+1].position ){
+                var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
+                TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
+                document.querySelector('.origin').classList.add('active')
+    
+            } else if(j != 0 && camera.position.z -5 < Object.values(dates)[j-1].position && camera.position.z -5 > Object.values(dates)[j].position){
+                var value = document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).offsetTop
+                TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
+                document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).classList.add('active')
+    
+            }
+            if(camera.position.z - 5  < Object.values(dates)[Object.values(dates).length - 1].position ){
+                var value = document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).offsetTop
+                TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
+                document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).classList.add('active')
+            }
         }
-        if(j == 0 && camera.position.z -5 > Object.values(dates)[j+1].position ){
-            var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
-            TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
-            document.querySelector('.origin').classList.add('active')
-
-        } else if(j != 0 && camera.position.z -5 < Object.values(dates)[j-1].position && camera.position.z -5 > Object.values(dates)[j].position){
-            var value = document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).offsetTop
-            TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
-            document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).classList.add('active')
-
-        }
-        if(camera.position.z - 5  < Object.values(dates)[Object.values(dates).length - 1].position ){
-            var value = document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).offsetTop
-            TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
-            document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).classList.add('active')
-        }
+    } else {
+        sidebar.style.display = 'none'
     }
+
 
 }
 
@@ -658,7 +696,7 @@ const init = () => {
     function onMouseWheel( event) {
         event.preventDefault();
         // console.log(camera.position.z)
-        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera);
+        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar);
 
         if(loadingComplete){
             if(!picOpened){
@@ -730,11 +768,11 @@ const init = () => {
     function touchStart(event) {
         console.log("touch")
         event.preventDefault()
-        // start.x = event.touches[0].pageX;
-        // start.y = event.touches[0].pageY;
-        start.x = +(event.targetTouches[0].pageX / window.innerWidth) * 2 +-1;
-        start.y = -(event.targetTouches[0].pageY / window.innerHeight) * 2 + 1;
-        handleTouch(start)
+        start.x = event.touches[0].pageX;
+        start.y = event.touches[0].pageY;
+        mouse.x = +(event.targetTouches[0].pageX / window.innerWidth) * 2 +-1;
+        mouse.y = -(event.targetTouches[0].pageY / window.innerHeight) * 2 + 1;
+        handleTouch(mouse)
     }
     
     function touchMove(event){
@@ -742,8 +780,8 @@ const init = () => {
         offset = {};
         offset.x = start.x - event.touches[0].pageX;
         offset.y = start.y - event.touches[0].pageY;
-        camera.position.z -= offset.y * 0.001;
-        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera);
+        // camera.position.z -= offset.y * 0.001;
+        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar);
         if(loadingComplete){
             if(!picOpened){
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
@@ -752,11 +790,11 @@ const init = () => {
                 let move = scale(offset.y, -300, 300, -2, 2)
 
                 if(camera.position.z - move <= 4.2){
-                    camera.position.z -= move / 10;
+                    camera.position.z -= move;
                 } 
 
                 if(camera.position.z - move >= 4){
-                     TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "none"});
+                     TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: 4, overwrite : "none"});
                 } 
                 
             }else {              
@@ -997,7 +1035,7 @@ const init = () => {
 
     const handleTouch = (tar) => {
         
-        raycaster.setFromCamera( start, camera );
+        raycaster.setFromCamera( tar, camera );
         console.log(raycaster)
         var intersects = raycaster.intersectObjects( scene.children );
         console.log(intersects)
@@ -1050,13 +1088,13 @@ const init = () => {
         camera.aspect = windowWidth / windowHeight
         camera.updateProjectionMatrix()
         renderer.setSize(windowWidth, windowHeight)
-        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera)
+        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
     })
 
     const animate = () => {
         window.requestAnimationFrame(animate)
         renderer.render(scene, camera)
-        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera)
+        updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
 
         if(camera.position.z >= -2){
             updateIntro(camera.position.z)
@@ -1066,8 +1104,13 @@ const init = () => {
 
     }
     
+    if(window.innerHeight > window.innerWidth){
+        addItemsMobile(dates, scene, loader, sidebarContainer, camera, sidebarCursor)
 
-    addItems(dates, scene, loader, sidebarContainer, camera, sidebarCursor)
+    }else{
+        addItems(dates, scene, loader, sidebarContainer, camera, sidebarCursor)
+
+    }
     animate()
 
 

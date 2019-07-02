@@ -61,7 +61,7 @@ body {
     height: 20%;
     font-family: Montserrat-Bold;
     color:#fff;
-    font-size: 90px;
+    font-size: 6vw;
     text-align: center;
 
 }
@@ -73,8 +73,8 @@ body {
     text-align: justify;
     font-family: Montserrat-Regular;
     color:#fff;
-    font-size: 15px;
-    line-height: 25px;
+    font-size: 1vw;
+    line-height: 1.5vw;
 }
 .content-right{
     right: 20%;
@@ -105,7 +105,7 @@ body {
 }
 .sidebar-container-year{
     font-family: Montserrat-Regular;
-    font-size: 14px;
+    font-size: 1vw;
     color: #777;
     padding: 10px 0;
     text-align: center;
@@ -149,21 +149,21 @@ body {
 .title-primary{
     font-family: Hijrnotes;
     color: #fff;
-    font-size: 35px;
+    font-size: 2vw;
 }
 .title-secondary{
     font-family: Montserrat-Bold;
     color: #fff;
-    font-size: 50px;
+    font-size: 3.5vw;
     letter-spacing: 5px;
 }
 
 .subtitle, .progress{
     font-family: Montserrat-Regular;
     color: rgb(175, 175, 175);
-    font-size: 14px;
-    line-height: 25px;
-    margin-top: 20px;
+    font-size: 1vw;
+    line-height: 1.5vw;
+    margin-top: 1.5vw;
 }
 
 .progress{
@@ -191,7 +191,6 @@ body {
 }
 .scroll {
     opacity: 0;
-    margin-top: 100px;
 }
 .progress-container{
     z-index:3;
