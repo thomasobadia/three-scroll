@@ -835,7 +835,6 @@ const init = () => {
         TweenMax.to(overlayContent.style,1, {ease: Power0.ease, top: 50 + mouse.y  + '%', left: '+=' - mouse.x   + '%'});
         TweenMax.to(overlayYear.style,1, {ease: Power0.ease, top: 20 + mouse.y  + '%', left: '+=' - mouse.x   + '%'});
 
-        
         updateCursor()
         
 
@@ -1110,6 +1109,10 @@ const init = () => {
     renderer.domElement.addEventListener("touchmove", touchMove, { passive: false });
     renderer.domElement.addEventListener( 'mousemove', onMouseMove, false );
     renderer.domElement.addEventListener( 'click', handleClick, false );
+    overlayContainer.addEventListener( 'click', handleClick, false );
+    overlayContainer.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
+    overlayContainer.addEventListener( 'mousemove', onMouseMove, false );
+
     intro.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     intro.addEventListener("touchstart", touchStart, { passive: false });
     intro.addEventListener("touchmove", touchMove, { passive: false });
