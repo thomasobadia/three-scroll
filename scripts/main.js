@@ -683,6 +683,7 @@ const init = () => {
         start.y = event.touches[0].pageY;
         mouse.x = +(event.targetTouches[0].pageX / window.innerWidth) * 2 +-1;
         mouse.y = -(event.targetTouches[0].pageY / window.innerHeight) * 2 + 1;
+        offset = {x:0,y:0};
     }
 
     function touchEnd(event){
@@ -691,7 +692,7 @@ const init = () => {
         // touch.x = start.x - event.touches[0].pageX;
         // touch.y = start.y +(event.targetTouches[0].pageY / window.innerHeight) * 2 + 1;
         console.log(offset.y)
-        if(offset.y < 10 && offset.y < -10){
+        if(offset.y < 10 && offset.y > -10){
          handleTouch(mouse)
 
         }
@@ -708,11 +709,11 @@ const init = () => {
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
                     progressContainer.style.display = 'none'
                 }})
-                let move = scale(offset.y, -300, 300, 20, -20)
+                let move = scale(offset.y, -300, 300, 10, -10)
 
                 if(camera.position.z - move <= 4){
                     // camera.position.z -= move;
-                    TweenMax.to(camera.position,0.5, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "none"});
+                    TweenMax.to(camera.position,0.8, { ease: Power2.easeOut, z: "-=" + move, overwrite : "none"});
                 } 
 
                 // if(camera.position.z - move >= 4){
