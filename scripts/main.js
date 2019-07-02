@@ -621,7 +621,7 @@ const init = () => {
     const progressBar = document.querySelector('.progression')
     const progressNumber = document.querySelector('.progressNumber')
     const scrollItem = document.querySelector('.scroll')
-    var nextImage, prevImage
+    var nextImage, prevImage, baseAlpha, baseBeta
     let canScroll = true;
     let canBounce = true;
     let loadingComplete = false
@@ -1069,8 +1069,8 @@ const init = () => {
     // TODO : Handle Mobile Orientation
     const handleOrientation = (event,initialOrientation) => {
         if(initialOrientation){
-            let baseBeta = event.beta
-            let baseAlpha = event.alpha
+            baseBeta = event.beta
+            baseAlpha = event.alpha
             initialOrientation = false
         }        
         camera.rotation.x =  baseBeta - event.beta /100
