@@ -787,11 +787,11 @@ const init = () => {
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
                     progressContainer.style.display = 'none'
                 }})
-                let move = scale(offset.y, -300, 300, -50, 50)
+                let move = scale(offset.y, -300, 300, 30, -30)
 
                 if(camera.position.z - move <= 4.2){
                     // camera.position.z -= move;
-                    TweenMax.to(camera.position,1.5, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "none"});
+                    TweenMax.to(camera.position,0.75, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "none"});
                 } 
 
                 if(camera.position.z - move >= 4){
@@ -900,13 +900,13 @@ const init = () => {
       }
 
     const updateIntro = (cameraPos) => {
-        opacity = scale(cameraPos,-1,4,0,1)
+        opacity = scale(cameraPos,0,4,0,1)
         scaleIntro = scale(cameraPos,4,-2,1,10)
         if(scaleIntro < 0.7){scaleIntro = 0.7}
         intro.style.opacity = opacity
         // intro.style.transform = 'scale('+scaleIntro+') translateX(-50%)'
         TweenMax.to(intro,0,{scale:scaleIntro,translateX: '-50%'})
-        if(opacity < 0){
+        if(opacity <= 0){
             intro.style.display = 'none'
         }else{
             intro.style.display = 'flex'       
@@ -1066,15 +1066,15 @@ const init = () => {
   
 
     // TODO : Handle Mobile Orientation
-    // const handleOrientation = (event) => {
-    //     console.log('orichange')
-    //     console.log((event.beta - 90) / 100)
-    //     console.log(event.alpha / 100)
-    //     camera.rotation.x =  (event.beta - 90) / 100
-    //     camera.rotation.y =  event.alpha / 100
-    // }
+    const handleOrientation = (event) => {
+        console.log('orichange')
+        console.log((event.beta - 90) / 100)
+        console.log(event.alpha / 100)
+        camera.rotation.x =  (event.beta - 90) / 100
+        camera.rotation.y =  event.alpha / 100
+    }
 
-    // window.addEventListener('deviceorientation', handleOrientation, false);
+    window.addEventListener('deviceorientation', handleOrientation, false);
 
     
     document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
