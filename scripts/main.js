@@ -625,6 +625,7 @@ const init = () => {
     let canScroll = true;
     let canBounce = true;
     let loadingComplete = false
+    const initialOrientation = true
 
 
     document.querySelector('.origin').addEventListener('click', () => {
@@ -1067,11 +1068,13 @@ const init = () => {
 
     // TODO : Handle Mobile Orientation
     const handleOrientation = (event) => {
-        console.log('orichange')
-        console.log((event.beta - 90) / 100)
-        console.log(event.alpha / 100)
-        camera.rotation.x =  (event.beta - 90) / 100
-        camera.rotation.y =  event.alpha / 100
+        if(initialOrientation){
+            let baseBeta = event.beta
+            let baseAlpha = event.alpha
+            initialOrientation = false
+        }        
+        camera.rotation.x =  baseBeta - event.beta /100
+        camera.rotation.y =  baseAlpha - event.alpha /100
     }
 
     window.addEventListener('deviceorientation', handleOrientation, false);
