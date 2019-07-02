@@ -609,9 +609,14 @@ const init = () => {
     let picOpenedCoords = {}
     
     const container = document.querySelector('.story-container')
-    const overlayContainer = document.querySelector('.year-content-overlay')
+    const overlayContainer = document.querySelector('.overlay')
     const overlayYear = document.querySelector('.year')
     const overlayContent = document.querySelector('.content')
+    const overlayContainerMobile = document.querySelector('.mobile-overlay')
+    const overlayYearMobile = document.querySelector('.mobile-overlay-year')
+    const overlayContentMobile = document.querySelector('.mobile-overlay-content')
+    const overlayImageMobile = document.querySelector('.mobile-overlay-image')
+    const overlayCloseMobile = document.querySelector('.mobile-overlay-close')
     const sidebar = document.querySelector('.sidebar')
     const sidebarContainer = document.querySelector('.sidebar-container')
     const sidebarCursor = document.querySelector('.sidebar-cursor')
@@ -773,7 +778,13 @@ const init = () => {
         start.y = event.touches[0].pageY;
         mouse.x = +(event.targetTouches[0].pageX / window.innerWidth) * 2 +-1;
         mouse.y = -(event.targetTouches[0].pageY / window.innerHeight) * 2 + 1;
+    }
+
+    function touchEnd(event){
+        if(offset.y < 10){
         handleTouch(mouse)
+            
+        }
     }
     
     function touchMove(event){
@@ -781,7 +792,6 @@ const init = () => {
         offset = {};
         offset.x = start.x - event.touches[0].pageX;
         offset.y = start.y - event.touches[0].pageY;
-        // camera.position.z -= offset.y * 0.001;
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar);
         if(loadingComplete){
             if(!picOpened){
@@ -896,6 +906,27 @@ const init = () => {
 
     }
 
+    const openImageMobile = (obj) => {
+        picOpened = true
+        picOpenedCoords.name = obj.name
+        overlayYearMobile.textContent = obj.name
+        overlayContentMobile.textContent = obj.content
+        overlayImageMobile.src = obj.material.map.image.currentSrc
+        overlayContainerMobile.style.display = 'flex'
+        overlayCloseMobile.style.display = 'block'
+        TweenMax.to(overlayContainerMobile,0.5, {ease: Power2.easeInOut, delay: 0.75, opacity:1, scale: 1});
+        TweenMax.to(overlayCloseMobile,0.5, {ease: Power2.easeInOut, delay: 0.75, opacity:1, scale: 1});
+
+    }
+
+    const closeImageMobile = () => {
+        TweenMax.to(overlayCloseMobile,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainer.style.display = 'none'});
+        TweenMax.to(overlayCloseMobile,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainer.style.display = 'none'});
+        picOpened = false
+    }
+    overlayCloseMobile.addEventListener('touchstart', () => {
+        closeImageMobile()
+    })
     const scale = (num, in_min, in_max, out_min, out_max) => {
         return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
       }
@@ -1041,18 +1072,14 @@ const init = () => {
         console.log(raycaster)
         var intersects = raycaster.intersectObjects( scene.children );
         console.log(intersects)
-        if(picOpened){
-            closeImage()  
-        }else{
-            if(intersects.length){
-                // console.log(intersects[0].object)
-                if(intersects[0].object.type === "Sprite" && !picOpened){
+        if(intersects.length){
+            // console.log(intersects[0].object)
+            if(intersects[0].object.type === "Sprite" && !picOpened){
+                openImageMobile(intersects[0].object)
 
-                    openImage(intersects[0].object)
-
-                }
             }
         }
+
     }
 
 
@@ -1066,25 +1093,31 @@ const init = () => {
 
   
 
-    // TODO : Handle Mobile Orientation
-    const handleOrientation = (event,initialOrientation) => {
-        if(initialOrientation){
-            baseBeta = event.beta
-            baseAlpha = event.alpha
-            initialOrientation = false
-        }        
-        camera.rotation.x +=  (baseBeta - event.beta) /100
-        camera.rotation.y +=  (baseAlpha - event.alpha) /100
-    }
+    // // TODO : Handle Mobile Orientation
+    // const handleOrientation = (event,initialOrientation) => {
+    //     if(initialOrientation){
+    //         baseBeta = event.beta
+    //         baseAlpha = event.alpha
+    //         initialOrientation = false
+    //     }        
+    //     camera.rotation.x +=  (baseBeta - event.beta) /100
+    //     camera.rotation.y +=  (baseAlpha - event.alpha) /100
+    // }
 
-    window.addEventListener('deviceorientation', (e) =>{handleOrientation(e,initialOrientation)}, false);
+    // window.addEventListener('deviceorientation', (e) =>{handleOrientation(e,initialOrientation)}, false);
 
     
-    document.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
-    document.addEventListener("touchstart", touchStart, { passive: false });
-    document.addEventListener("touchmove", touchMove, { passive: false });
-    document.addEventListener( 'mousemove', onMouseMove, false );
-    document.addEventListener( 'click', handleClick, false );
+    renderer.domElement.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
+    renderer.domElement.addEventListener("touchstart", touchStart, { passive: false });
+    renderer.domElement.addEventListener("touchend", touchEnd, { passive: false });
+    renderer.domElement.addEventListener("touchmove", touchMove, { passive: false });
+    renderer.domElement.addEventListener( 'mousemove', onMouseMove, false );
+    renderer.domElement.addEventListener( 'click', handleClick, false );
+    intro.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
+    intro.addEventListener("touchstart", touchStart, { passive: false });
+    intro.addEventListener("touchmove", touchMove, { passive: false });
+    intro.addEventListener( 'mousemove', onMouseMove, false );
+    intro.addEventListener( 'click', handleClick, false );
 
     window.addEventListener('resize', () => {
         windowWidth = window.innerWidth
