@@ -643,7 +643,8 @@ var addItems = function addItems(
   loader,
   sidebarContainer,
   camera,
-  sidebarCursor
+  sidebarCursor,
+  values
 ) {
   for (var i = 0; i < values.length; i++) {
     if (i > 0) {
@@ -1550,10 +1551,10 @@ var init = function init() {
       loader,
       sidebarContainer,
       camera,
-      sidebarCursor
+      sidebarCursor,
     );
   } else {
-    addItems(dates, scene, loader, sidebarContainer, camera, sidebarCursor);
+    addItems(dates, scene, loader, sidebarContainer, camera, sidebarCursor,values);
   }
 
   animate();
