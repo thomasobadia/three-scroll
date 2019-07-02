@@ -1084,6 +1084,7 @@ const init = () => {
 
     
     renderer.domElement.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
+    renderer.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, { passive: false } );
     renderer.domElement.addEventListener("touchstart", touchStart, { passive: false });
     renderer.domElement.addEventListener("touchend", touchEnd, { passive: false });
     renderer.domElement.addEventListener("touchmove", touchMove, { passive: false });
@@ -1154,3 +1155,41 @@ init()
 
 
 
+Jibe
+
+
+
+
+$
+var delta,memo_delta;
+var isFirefox = (navigator.userAgent.indexOf("Firefox") != -1) ;
+
+
+
+var handleWheel = function (event) 
+{
+ var e = window.event || event;
+ delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+ change_slide(delta,e.wheelDelta);
+ e.preventDefault();
+};
+
+
+
+
+var addMouseWheelEventListener = function (scrollHandler)
+{
+ if (window.addEventListener) 
+ {
+  // IE9+, Chrome, Safari, Opera
+  window.addEventListener("mousewheel", scrollHandler, false);
+  // Firefox
+  window.addEventListener("DOMMouseScroll", scrollHandler, false);
+ } 
+ else 
+ {
+  // // IE 6/7/8
+  window.attachEvent("onmousewheel", scrollHandler);
+ }
+}
+addMouseWheelEventListener(handleWheel);
