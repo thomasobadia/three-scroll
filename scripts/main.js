@@ -787,10 +787,11 @@ const init = () => {
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
                     progressContainer.style.display = 'none'
                 }})
-                let move = scale(offset.y, -300, 300, -2, 2)
+                let move = scale(offset.y, -300, 300, -20, 20)
 
                 if(camera.position.z - move <= 4.2){
-                    camera.position.z -= move;
+                    // camera.position.z -= move;
+                    TweenMax.to(camera.position,2, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "none"});
                 } 
 
                 if(camera.position.z - move >= 4){
