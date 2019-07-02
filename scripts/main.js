@@ -868,7 +868,7 @@ var init = function init() {
   var loadingComplete = false;
   var initialOrientation = true;
   var values = Object.keys(dates).map(function(e) {
-    return obj[e]
+    return dates[e]
   })
   document.querySelector(".origin").addEventListener("click", function() {
     TweenMax.to(camera.position, 1, {
