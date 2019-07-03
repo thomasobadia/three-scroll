@@ -44,7 +44,7 @@ body {
 }
 
 
-.overlay{
+.history-overlay{
     position: absolute;
     display: none;
     z-index: 2;
@@ -53,7 +53,7 @@ body {
     opacity: 0;
 }
 
-.year{
+.history-overlay-year{
     position: absolute;
     top: 20%;
     left: 50%;
@@ -65,7 +65,7 @@ body {
     text-align: center;
 
 }
-.content{
+.history-overlay-content{
     position: absolute;
     top: 50%;
     height: 50%;
@@ -75,17 +75,17 @@ body {
     font-size: 1vw;
     line-height: 1.5vw;
 }
-.content-right{
+.history-overlay-content-right{
     right: 20%;
 
 }
 
-.content-left{
+.history-overlay-content-left{
     left : 20%;
 }
 
 
-.sidebar{
+.history-sidebar{
     position: absolute;
     z-index: 3;
     right: 0;
@@ -102,7 +102,7 @@ body {
     align-items: center;
     border-left: 1px solid hsla(0, 0%, 58.4%, 0.3);
 }
-.sidebar-container-year{
+.history-sidebar-container-year{
     font-family: Montserrat-Regular;
     font-size: 1vw;
     color: #777;
@@ -113,11 +113,11 @@ body {
     
 }
 
-.sidebar-container-year.active{
+.history-sidebar-container-year.history-sidebar-container-year-active{
     color: #fff;
     padding: 15px 0;
 }
-.sidebar-cursor{
+.history-sidebar-cursor{
     position: absolute;
     z-index: 4;
     left: 0;
@@ -129,7 +129,7 @@ body {
     border-bottom: 1px solid #4075e5;
 }
 
-.intro{
+.history-intro{
     display: flex;
     position: absolute;
     height: 100%;
@@ -157,7 +157,7 @@ body {
     letter-spacing: 5px;
 }
 
-.subtitle, .progress{
+.subtitle, .history-progress{
     font-family: Montserrat-Regular;
     color: rgb(175, 175, 175);
     font-size: 1vw;
@@ -165,33 +165,33 @@ body {
     margin-top: 1.5vw;
 }
 
-.progress{
+.history-progress{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
 }
-.progress-bar{
+.history-progress-bar{
     width: 100px;
     height: 1px;
     background-color: hsla(0, 0%, 77.7%, 0.3);
 }
-.progression{
+.history-progress-progression{
     height: 1px;
     background: #4075e5;
     width: 0%;
     /* transition: width linear 0.25s; */
-    /* TODO fix transition progress bar */
+    /* TODO: fix transition progress bar */
 }
-.progress-number{
+.history-progress-number{
     margin: 0 10px;
     
 }
-.scroll {
+.mouse_scroll {
     opacity: 0;
 }
-.progress-container{
+.history-progress-container{
     z-index:3;
     position: absolute;
     text-align: center;
@@ -201,7 +201,7 @@ body {
 }
 
 
-.mobile-overlay{
+.history-overlay-mobile{
     position: relative;
     display: flex;
     overscroll-behavior-y:none;
@@ -221,7 +221,7 @@ body {
     padding: 0 30px;
 }
 
-.mobile-overlay-close{
+.history-overlay-mobile-close{
     position: absolute;
     opacity: 0;
     display: 'none';
@@ -233,19 +233,19 @@ body {
 }
 
 
-.mobile-overlay-image{
+.history-overlay-mobile-image{
    width: 100%;
    height: auto;
 }
 
-.mobile-overlay-year{
+.history-overlay-mobile-year{
     font-family: Montserrat-Bold;
     color:#fff;
     font-size: 70px;
     text-align: center;
     margin: 60px 0 40px 0;
 }
-.mobile-overlay-content{
+.history-overlay-mobile-content{
     font-family: Montserrat-Regular;
     color:#fff;
     font-size: 18px;

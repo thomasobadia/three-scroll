@@ -1,4 +1,4 @@
-const path = "assets/"
+const path = "https://thomasobadia.github.io/three-scroll-js/assets/"
 const spaceBetweenYears = 5
 const spaceAfterYears = 3
 const spaceBetweenElements = 2
@@ -8,7 +8,6 @@ const elementsPosition = [{x:-1.5,y:1},{x:1.5,y:1}, {x:1.5,y:-1}, {x:-1.5,y:-1}]
 const elementsPositionMobile = [{x:1,y:-1.5},{x:1,y:1.5}, {x:-1,y:1.5}, {x:-1,y:-1.5}]
 
 
-// TODO : Random sur le premier element d'une année
 
 const dates = {
     0: [
@@ -284,7 +283,7 @@ const addVideo = (scene, url, size, position, name, content) => {
     video.src = url;
     video.muted = "true"
     video.load()
-    // TODO Support play device
+    // TODO: Support play device
     video.play()
     var texture = new THREE.VideoTexture( video );
     texture.needsUpdate;
@@ -418,7 +417,7 @@ const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor,sideb
 const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor,sidebar) => {
     for(let i = 1; i < Object.values(obj).length; i++){
         var year = document.createElement('div')
-        year.classList.add('sidebar-container-year')
+        year.classList.add('history-sidebar-container-year')
         // console.log(Object.keys(obj)[i])
         year.textContent = Object.keys(obj)[i]
         year.id = "annee-"+ Object.keys(obj)[i]
@@ -447,27 +446,27 @@ const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
 const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar) => {
     if(window.innerHeight < window.innerWidth){
         let years = Array.from(sidebarContainer.children)
-        document.querySelector('.origin').classList.remove('active')
+        document.querySelector('.history-sidebar-container-year-origin').classList.remove('history-sidebar-container-year-active')
         for(let j = 0; j< Object.values(dates).length; j++){
             if (j!=0){
-                document.querySelector(`#annee-${Object.keys(dates)[j]}`).classList.remove('active')
+                document.querySelector(`#annee-${Object.keys(dates)[j]}`).classList.remove('history-sidebar-container-year-active')
                 
             }
             if(j == 0 && camera.position.z -5 > Object.values(dates)[j+1].position ){
-                var value = document.querySelector('.origin').getBoundingClientRect().height /2 + document.querySelector('.origin').offsetTop
+                var value = document.querySelector('.history-sidebar-container-year-origin').getBoundingClientRect().height /2 + document.querySelector('.history-sidebar-container-year-origin').offsetTop
                 TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
-                document.querySelector('.origin').classList.add('active')
+                document.querySelector('.history-sidebar-container-year-origin').classList.add('history-sidebar-container-year-active')
     
             } else if(j != 0 && camera.position.z -5 < Object.values(dates)[j-1].position && camera.position.z -5 > Object.values(dates)[j].position){
                 var value = document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).offsetTop
                 TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
-                document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).classList.add('active')
+                document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).classList.add('history-sidebar-container-year-active')
     
             }
             if(camera.position.z - 5  < Object.values(dates)[Object.values(dates).length - 1].position ){
                 var value = document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).offsetTop
                 TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
-                document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).classList.add('active')
+                document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).classList.add('history-sidebar-container-year-active')
             }
         }
     } else {
@@ -488,24 +487,24 @@ const init = () => {
     let picOpened = false
     let picOpenedCoords = {}
     
-    const container = document.querySelector('.story-container')
-    const overlayContainer = document.querySelector('.overlay')
-    const overlayYear = document.querySelector('.year')
-    const overlayContent = document.querySelector('.content')
-    const overlayContainerMobile = document.querySelector('.mobile-overlay')
-    const overlayYearMobile = document.querySelector('.mobile-overlay-year')
-    const overlayContentMobile = document.querySelector('.mobile-overlay-content')
-    const overlayImageMobile = document.querySelector('.mobile-overlay-image')
-    const overlayCloseMobile = document.querySelector('.mobile-overlay-close')
-    const sidebar = document.querySelector('.sidebar')
-    const sidebarContainer = document.querySelector('.sidebar-container')
-    const sidebarCursor = document.querySelector('.sidebar-cursor')
-    const intro = document.querySelector('.intro')
-    const progress = document.querySelector('.progress')
-    const progressContainer = document.querySelector('.progress-container')
-    const progressBar = document.querySelector('.progression')
-    const progressNumber = document.querySelector('.progressNumber')
-    const scrollItem = document.querySelector('.scroll')
+    const container = document.querySelector('.history-container')
+    const overlayContainer = document.querySelector('.history-overlay')
+    const overlayYear = document.querySelector('.history-overlay-year')
+    const overlayContent = document.querySelector('.history-overlay-content')
+    const overlayContainerMobile = document.querySelector('.history-overlay-mobile')
+    const overlayYearMobile = document.querySelector('.history-overlay-mobile-year')
+    const overlayContentMobile = document.querySelector('.history-overlay-mobile-content')
+    const overlayImageMobile = document.querySelector('.history-overlay-mobile-image')
+    const overlayCloseMobile = document.querySelector('.history-overlay-mobile-close')
+    const sidebar = document.querySelector('.history-sidebar')
+    const sidebarContainer = document.querySelector('.history-sidebar-container')
+    const sidebarCursor = document.querySelector('.history-sidebar-cursor')
+    const intro = document.querySelector('.history-intro')
+    const progress = document.querySelector('.history-progress')
+    const progressContainer = document.querySelector('.history-progress-container')
+    const progressBar = document.querySelector('.history-progress-progression')
+    const progressNumber = document.querySelector('.history-progressNumber')
+    const scrollItem = document.querySelector('.mouse_scroll')
     var nextImage, prevImage, baseAlpha, baseBeta
     let canScroll = true;
     let canBounce = true;
@@ -513,7 +512,7 @@ const init = () => {
     const initialOrientation = true
 
 
-    document.querySelector('.origin').addEventListener('click', () => {
+    document.querySelector('.history-sidebar-container-year-origin').addEventListener('click', () => {
         
         TweenMax.to(camera.position,1, { ease: Power0.ease, z: 4 , overwrite : "none"});
     })
@@ -573,7 +572,7 @@ const init = () => {
 
     scene.background = new THREE.TextureLoader().load(path + "background.png")
     scene.fog = new THREE.Fog( 0x0C1015,2,10);
-    // TODO : Opti fog
+    // TODO: Opti fog
 
 
     var start = {x:0,y:0};
@@ -739,7 +738,7 @@ const init = () => {
     
     }
 
-
+    // TODO: Insta Scroll
     function onMouseMove( event ) {
 
         mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -781,15 +780,15 @@ const init = () => {
         document.querySelector('body').style.cursor ="pointer";   
         
         if(picOpenedCoords.x > 0){
-            overlayContent.classList.add('content-left')
-            if(overlayContent.classList.contains('content-right')){
-                overlayContent.classList.remove('content-right')
+            overlayContent.classList.add('history-overlay-content-left')
+            if(overlayContent.classList.contains('history-overlay-content-right')){
+                overlayContent.classList.remove('history-overlay-content-right')
             }
             
         }else {
-            overlayContent.classList.add('content-right')
-            if(overlayContent.classList.contains('content-left')){
-                overlayContent.classList.remove('content-left')
+            overlayContent.classList.add('history-overlay-content-right')
+            if(overlayContent.classList.contains('history-overlay-content-left')){
+                overlayContent.classList.remove('history-overlay-content-left')
             }
         }
         TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:obj.position.x * 0.60, y:obj.position.y, z: obj.position.z + 1.5 });
@@ -890,15 +889,15 @@ const init = () => {
                 overlayContent.innerHTML = obj.content
                 overlayContainer.style.transform = 'scale(0)'
                 if(picOpenedCoords.x > 0){
-                    overlayContent.classList.add('content-left')
-                    if(overlayContent.classList.contains('content-right')){
-                        overlayContent.classList.remove('content-right')
+                    overlayContent.classList.add('history-overlay-content-left')
+                    if(overlayContent.classList.contains('history-overlay-content-right')){
+                        overlayContent.classList.remove('history-overlay-content-right')
                     }
                     
                 }else {
-                    overlayContent.classList.add('content-right')
-                    if(overlayContent.classList.contains('content-left')){
-                        overlayContent.classList.remove('content-left')
+                    overlayContent.classList.add('history-overlay-content-right')
+                    if(overlayContent.classList.contains('history-overlay-content-left')){
+                        overlayContent.classList.remove('history-overlay-content-left')
                     }
                 }
                 TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:1, scale: 1});
@@ -908,15 +907,15 @@ const init = () => {
                 overlayYear.innerHTML = obj.name
                 overlayContent.innerHTML = obj.content
                 if(picOpenedCoords.x > 0){
-                    overlayContent.classList.add('content-left')
-                    if(overlayContent.classList.contains('content-right')){
-                        overlayContent.classList.remove('content-right')
+                    overlayContent.classList.add('history-overlay-content-left')
+                    if(overlayContent.classList.contains('history-overlay-content-right')){
+                        overlayContent.classList.remove('history-overlay-content-right')
                     }
                     
                 }else {
-                    overlayContent.classList.add('content-right')
-                    if(overlayContent.classList.contains('content-left')){
-                        overlayContent.classList.remove('content-left')
+                    overlayContent.classList.add('history-overlay-content-right')
+                    if(overlayContent.classList.contains('history-overlay-content-left')){
+                        overlayContent.classList.remove('history-overlay-content-left')
                     }
                 }
                 TweenMax.fromTo(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:0, scale: 0.8},{ease: Power2.easeInOut, opacity:1, scale: 1});
@@ -1003,7 +1002,7 @@ const init = () => {
 
   
 
-    // // TODO : Handle Mobile Orientation
+    // // TODO: Handle Mobile Orientation
     // const handleOrientation = (event,initialOrientation) => {
     //     if(initialOrientation){
     //         baseBeta = event.beta
