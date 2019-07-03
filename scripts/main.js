@@ -316,8 +316,8 @@ const addPicture = (scene, url, position, name, content) => {
     img.onload = function (){
         img.style.visibility = 'hidden';
         document.body.appendChild(img);
-        var width = img.clientWidth;
-        var height = img.clientHeight;
+        var width = img.naturalWidth;
+        var height = img.naturalHeight;
         document.body.removeChild(img)
         sprite.scale.set(normalize(width,3000,0)*1.5,normalize(height,3000,0)*1.5,0.0001);
     }
@@ -744,8 +744,8 @@ const init = () => {
         mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
         // camera.rotation.x =  mouse.y / 20
         TweenMax.to(camera.rotation,1, { ease: Power0.ease, x: mouse.y / 10, y: - mouse.x / 10, overwrite : "none"});
-        TweenMax.to(overlayContent.style,1, {ease: Power0.ease, top: 50 + mouse.y  + '%', left: '+=' - mouse.x   + '%'});
-        TweenMax.to(overlayYear.style,1, {ease: Power0.ease, top: 20 + mouse.y  + '%', left: '+=' - mouse.x   + '%'});
+        TweenMax.to(overlayContent.style,1, {ease: Power0.ease, marginTop:   mouse.y *10 + 'px', marginLeft: '+=' - mouse.x  *10 + 'px'});
+        TweenMax.to(overlayYear.style,1, {ease: Power0.ease, marginTop:   mouse.y *10 + 'px', marginLeft: '+=' - mouse.x  *10 + 'px'});
 
         updateCursor()
         
