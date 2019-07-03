@@ -796,7 +796,7 @@ const init = () => {
         toHide.map( mesh => { TweenMax.to(mesh.material,1, {ease: Power2.easeInOut, opacity:0.1 })})
 
         for (let i = 0 ; i < scene.children.length; i++){
-            if(scene.children[i].uuid == obj.uuid && scene.children[i].type === "Sprite"){
+            if(scene.children[i].uuid == obj.uuid && scene.children[i].type === "Sprite" && scene.children[i-1].type === "Sprite" && scene.children[i+1].type === "Sprite"){
                 if(i > 0 && i < scene.children.length){
                     nextImage = scene.children[i+1]
                     prevImage = scene.children[i-1]
@@ -935,7 +935,7 @@ const init = () => {
         toHide.map( mesh => { TweenMax.to(mesh.material,1, {ease: Power2.easeInOut, opacity:0.1 })})
     
         for (let i = 0 ; i < scene.children.length; i++){
-            if(scene.children[i].uuid == obj.uuid && scene.children[i].type === "Sprite"){
+            if(scene.children[i].uuid == obj.uuid && scene.children[i].type === "Sprite" && scene.children[i-1].type === "Sprite" && scene.children[i+1].type === "Sprite"){
                 if(i > 0 && i < scene.children.length){
                     nextImage = scene.children[i+1]
                     prevImage = scene.children[i-1]
