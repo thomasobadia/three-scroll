@@ -117,7 +117,7 @@ body {
     color: #fff;
     padding: 15px 0;
 }
-.history-sidebar-cursor{
+.history-sidebar-container-cursor{
     position: absolute;
     z-index: 4;
     left: 0;
