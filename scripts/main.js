@@ -503,7 +503,7 @@ const init = () => {
     const progress = document.querySelector('.history-progress')
     const progressContainer = document.querySelector('.history-progress-container')
     const progressBar = document.querySelector('.history-progress-progression')
-    const progressNumber = document.querySelector('.history-progressNumber')
+    const progressNumber = document.querySelector('.history-progressnumber')
     const scrollItem = document.querySelector('.mouse_scroll')
     var nextImage, prevImage, baseAlpha, baseBeta
     let canScroll = true;
@@ -757,7 +757,7 @@ const init = () => {
         var intersects = raycaster.intersectObjects( scene.children );
 
         if(picOpened){
-            document.querySelector('body').style.cursor = `url(assets/close_cursor.svg) 25 25, auto`
+            document.querySelector('body').style.cursor = `url('${path}'close_cursor.svg) 25 25, auto`
 
         } else{
             if(intersects.length && intersects[0].object.type === "Sprite"){
