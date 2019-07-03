@@ -570,7 +570,6 @@ const init = () => {
 
     }
 
-    scene.background = new THREE.TextureLoader().load(path + "background.png")
     scene.fog = new THREE.Fog( 0x0C1015,2,10);
     // TODO: Opti fog
 
