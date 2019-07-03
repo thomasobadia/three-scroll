@@ -347,8 +347,8 @@ const addText = (scene,loader, url, content, size, position, color,opacity) => {
 }
 
 const addDate = (scene, loader, date, position) => {
-    addText(scene,loader,'assets/Montserrat_Bold.json',date, 2, {x:0,y:0,z:position}, 0x24282E, 0.9)
-    addText(scene,loader,'assets/Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:position+spaceBetweenYearAndText}, 0xffffff, 1)
+    addText(scene,loader, path +'Montserrat_Bold.json',date, 2, {x:0,y:0,z:position}, 0x24282E, 0.9)
+    addText(scene,loader, path +'Hijrnotes_Regular.json',"Années", 0.25, {x:0,y:0,z:position+spaceBetweenYearAndText}, 0xffffff, 1)
 }
 
 const addItemsMobile = (obj,scene,loader, sidebarContainer,camera, sidebarCursor) => {
@@ -498,7 +498,7 @@ const init = () => {
     const overlayCloseMobile = document.querySelector('.history-overlay-mobile-close')
     const sidebar = document.querySelector('.history-sidebar')
     const sidebarContainer = document.querySelector('.history-sidebar-container')
-    const sidebarCursor = document.querySelector('.history-sidebar-cursor')
+    const sidebarCursor = document.querySelector('.history-sidebar-container-cursor')
     const intro = document.querySelector('.history-intro')
     const progress = document.querySelector('.history-progress')
     const progressContainer = document.querySelector('.history-progress-container')
