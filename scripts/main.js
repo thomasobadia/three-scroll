@@ -818,7 +818,7 @@ const init = () => {
         picOpenedCoords.name = obj.name
         overlayYearMobile.textContent = obj.name
         overlayContentMobile.innerHTML = obj.content
-        overlayImageMobile.src = obj.material.map.image.currentSrc
+        overlayImageMobile.srcset = obj.material.map.image.currentSrc
         overlayContainerMobile.style.display = 'flex'
         overlayCloseMobile.style.display = 'block'
         TweenMax.to(overlayContainerMobile,0.5, {ease: Power2.easeInOut, opacity:1, scale: 1});
