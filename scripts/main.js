@@ -828,13 +828,16 @@ const init = () => {
     }
 
     const closeImageMobile = () => {
-        $('.navbar-content').fadeIn();
 
         TweenMax.to(overlayCloseMobile,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainer.style.display = 'none'});
-        TweenMax.to(overlayContainerMobile,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainerMobile.style.display = 'none'});
+        TweenMax.to(overlayContainerMobile,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => {
+            overlayContainerMobile.style.display = 'none' 
+            $('.navbar-content').fadeIn()
+            }
+        });
         picOpened = false
     }
-    overlayCloseMobile.addEventListener('touchstart', () => {
+    overlayCloseMobile.addEventListener('touchend', () => {
         closeImageMobile()
     })
     const scale = (num, in_min, in_max, out_min, out_max) => {
