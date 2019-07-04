@@ -819,7 +819,7 @@ const init = () => {
         overlayYearMobile.textContent = obj.name
         overlayContentMobile.innerHTML = obj.content
         overlayImageMobile.srcset = obj.material.map.image.currentSrc
-        $('.navbar-quickacces').fadeOut();
+        $('.navbar-content').fadeOut();
         overlayContainerMobile.style.display = 'flex'
         overlayCloseMobile.style.display = 'block'
         TweenMax.to(overlayContainerMobile,0.5, {ease: Power2.easeInOut, opacity:1, scale: 1});
@@ -828,7 +828,7 @@ const init = () => {
     }
 
     const closeImageMobile = () => {
-        $('.navbar-quickacces').fadeIn();
+        $('.navbar-content').fadeIn();
 
         TweenMax.to(overlayCloseMobile,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainer.style.display = 'none'});
         TweenMax.to(overlayContainerMobile,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainerMobile.style.display = 'none'});
