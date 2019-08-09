@@ -1038,8 +1038,8 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
             camera.position.z -= (camera.position.z - destination ) /20
         }
 
-        if(destination >= -2){
-            updateIntro(destination)
+        if(camera.position.z >= -2){
+            updateIntro(camera.position.z)
 
         }
         
