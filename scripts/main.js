@@ -817,7 +817,8 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
         scaleIntro = scale(cameraPos,4,-2,1,10)
         if(scaleIntro < 0.7){scaleIntro = 0.7}
         intro.style.opacity = opacity
-        // intro.style.transform = 'scale('+scaleIntro+') translateX(-50%)'
+
+        
         TweenMax.to(intro,0,{scale:scaleIntro,translateX: '-50%'})
         if(opacity <= 0){
             intro.style.display = 'none'
@@ -1027,7 +1028,7 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
         if(Math.abs((camera.position.z - destination ))>0.5){
             console.log(camera.position.z - destination)
-            if(destination >= 5 ){
+            if(destination >= 4 ){
                 destination = 4
             }
             if(destination <= position + 5){
@@ -1037,7 +1038,7 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
             camera.position.z -= (camera.position.z - destination ) /20
         }
 
-        if(camera.position.z >= -2){
+        if(destination >= -2){
             updateIntro(destination)
 
         }
