@@ -682,7 +682,11 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
                     progressContainer.style.display = 'none'
                 }})
-                let move = scale(offset.y, -300, 300, -3, 3)
+                let height = document.documentElement.clientHeight
+                let move = scale(offset.y, -height, height, -2, 2)
+
+                console.log(offset.y)
+                console.log("move : " + move)
 
                 destination -=  move
                 
@@ -1027,7 +1031,6 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
         renderer.render(scene, camera)
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
         if(Math.abs((camera.position.z - destination ))>0.5){
-            console.log(camera.position.z - destination)
             if(destination >= 4 ){
                 destination = 4
             }
