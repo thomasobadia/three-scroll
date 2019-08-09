@@ -181,7 +181,7 @@ body {
     height: 1px;
     background: #4075e5;
     width: 0%;
-    /* transition: width linear 0.25s; */
+    /* transition: all linear 0.1s; */
     /* TODO: fix transition progress bar */
 }
 .history-progress-number{

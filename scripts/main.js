@@ -490,14 +490,12 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
         destination = 4
     })
 
-    // THREE.DefaultLoadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-    //     progress.innerText = 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.'
-    
-    // };
+
     
     THREE.DefaultLoadingManager.onLoad = function ( ) {
-        // progress.innerText = 'Chargement terminé !'
-        onLoadingComplete()
+        setTimeout(()=>{
+            onLoadingComplete()
+        },200)
     };
     
     THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
