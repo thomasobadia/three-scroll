@@ -311,7 +311,7 @@ function normalize(val, max, min) { return (val - min) / (max - min); }
 
 
 const addPicture = (scene, url, position, name, content) => {
-    var map = null
+    var map = new THREE.TextureLoader().load(url);
     var img = document.createElement("img");
     var result
     img.src = url;
@@ -321,7 +321,7 @@ const addPicture = (scene, url, position, name, content) => {
         var width = img.naturalWidth;
         var height = img.naturalHeight;
         document.body.removeChild(img)
-        sprite.scale.set(normalize(width,1000,0)*1.5,normalize(height,1000,0)*1.5,0.0001);
+        sprite.scale.set(normalize(width,1000,0)*1.5,normalize(height,1000,0)*1.5);
     }
     var material = new THREE.SpriteMaterial( { map: map} );
     material.minFilter = THREE.LinearFilter;
