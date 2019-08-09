@@ -1,4 +1,4 @@
-const path = "assets/"
+const path = "https://thomasobadia.github.io/three-scroll-js/assets/"
 const spaceBetweenYears = 5
 const spaceAfterYears = 3
 const spaceBetweenElements = 2
