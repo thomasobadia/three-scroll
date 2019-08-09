@@ -682,7 +682,7 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
                     progressContainer.style.display = 'none'
                 }})
-                let move = scale(offset.y, -300, 300, -1, 1)
+                let move = scale(offset.y, -300, 300, -10, 10)
 
                 destination -=  move
                 
