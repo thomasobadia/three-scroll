@@ -1031,8 +1031,8 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
         renderer.render(scene, camera)
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
         if(Math.abs((camera.position.z - destination ))>0.5){
-            if(destination >= 4 ){
-                destination = 4
+            if(destination >= 5 ){
+                destination = 5
             }
             if(destination <= position + 5){
                 destination = position + 5
