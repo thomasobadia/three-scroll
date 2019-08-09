@@ -1,4 +1,4 @@
-const path = "https://thomasobadia.github.io/three-scroll-js/assets/"
+const path = "assets/"
 const spaceBetweenYears = 5
 const spaceAfterYears = 3
 const spaceBetweenElements = 2
@@ -103,175 +103,175 @@ const dates = {
             content :"Ouverture d’une nouvelle usine à Mantes dont la direction technique est assurée par Maurice et Henri Lefèvre, gendres d’Henri Selmer. D’autres fabricants de saxophones, comme Dolnet et Evette-Scheaffer sont déjà implantés dans cette ville." ,
         },
     ],
-    // 1920: [
-    //     {
-    //         date: 1922,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Le 31 Décembre 1921 est présenté le premier saxophone Selmer (un alto), le \"Série 1922\" <br> Les premiers saxophones « Selmer » sortent sous la marque « Série 22 » <br> Le « Série 22 » fait place au « Modèle 22 ». L’ensemble de la famille est proposé, y compris le saxophone Tenor « C Melody ». <br> François Combelle, saxophoniste à la Garde Républicaine, est essayeur de saxophones pour Selmer (jusqu’à l’après guerre). <br> Selmer compte alors 50 luthiers qui fabriquent 30 saxophones / mois. " ,
-    //     },
-    //     {
-    //         date: 1923,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Extension des ateliers de Mantes : trois nouveaux ateliers sont construits : un pour les anches, deux pour les saxophones. L’atelier de la place Dancourt est conservé pour l’accueil des musiciens. <br> Selmer est présent au salon de la musique." ,
-    //     },
-    //     {
-    //         date: 1926,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Le nouveau logotype \"Henri SELMER Paris\" est adopté : la couronne de lauriers remplace la lyre. Ce logo original, gravé sur tous les instruments SELMER Paris, est toujours aujourd’hui le sceau de la marque originale « Henri SELMER Paris ».  <br> Sortie des Saxophones \"Modèle 26\". <br> Environ 136 ouvriers travaillent chez Selmer." ,
-    //     },
-    //     {
-    //         date: 1927,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Sortie de la clarinette métal. <br> Grand prix à l'Exposition Internationale de Genève, pour l'ensemble de la production." ,
-    //     },
-    //     {
-    //         date: 1928,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Création de la société \"H.Selmer & Cie\", sous forme S.A.R.L. <br> Sortie du “Modèle 28” <br> Le catalogue propose une large gamme d’instruments fabriqués par Selmer : la gamme clarinettes, bassons,... <br> ... au catalogue également : les gammes flûtes, saxophones, cors anglais, hautbois <br> Création de Selmer–Canada." ,
-    //     },
-    //     {
-    //         date: 1929,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Rachat des ateliers Adolphe Sax : Selmer Paris devient successeur du concept du saxophone. <br> Création de Selmer-Londres. <br> Présentation d'un modèle spécial de saxophone (n°9 909), avec douze améthystes pour l'exposition internationale de Barcelone. <br> Sortie du saxophone 28 New large bore." ,
-    //     },
-    // ],
-    // 1940: [
-    //     {
-    //         date: 1942,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1945,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    // ],
-    // 1950: [
-    //     {
-    //         date: 1952,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1953,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1954,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1955,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1956,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1957,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
+    1920: [
+        {
+            date: 1922,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Le 31 Décembre 1921 est présenté le premier saxophone Selmer (un alto), le \"Série 1922\" <br> Les premiers saxophones « Selmer » sortent sous la marque « Série 22 » <br> Le « Série 22 » fait place au « Modèle 22 ». L’ensemble de la famille est proposé, y compris le saxophone Tenor « C Melody ». <br> François Combelle, saxophoniste à la Garde Républicaine, est essayeur de saxophones pour Selmer (jusqu’à l’après guerre). <br> Selmer compte alors 50 luthiers qui fabriquent 30 saxophones / mois. " ,
+        },
+        {
+            date: 1923,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Extension des ateliers de Mantes : trois nouveaux ateliers sont construits : un pour les anches, deux pour les saxophones. L’atelier de la place Dancourt est conservé pour l’accueil des musiciens. <br> Selmer est présent au salon de la musique." ,
+        },
+        {
+            date: 1926,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Le nouveau logotype \"Henri SELMER Paris\" est adopté : la couronne de lauriers remplace la lyre. Ce logo original, gravé sur tous les instruments SELMER Paris, est toujours aujourd’hui le sceau de la marque originale « Henri SELMER Paris ».  <br> Sortie des Saxophones \"Modèle 26\". <br> Environ 136 ouvriers travaillent chez Selmer." ,
+        },
+        {
+            date: 1927,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Sortie de la clarinette métal. <br> Grand prix à l'Exposition Internationale de Genève, pour l'ensemble de la production." ,
+        },
+        {
+            date: 1928,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Création de la société \"H.Selmer & Cie\", sous forme S.A.R.L. <br> Sortie du “Modèle 28” <br> Le catalogue propose une large gamme d’instruments fabriqués par Selmer : la gamme clarinettes, bassons,... <br> ... au catalogue également : les gammes flûtes, saxophones, cors anglais, hautbois <br> Création de Selmer–Canada." ,
+        },
+        {
+            date: 1929,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Rachat des ateliers Adolphe Sax : Selmer Paris devient successeur du concept du saxophone. <br> Création de Selmer-Londres. <br> Présentation d'un modèle spécial de saxophone (n°9 909), avec douze améthystes pour l'exposition internationale de Barcelone. <br> Sortie du saxophone 28 New large bore." ,
+        },
+    ],
+    1940: [
+        {
+            date: 1942,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1945,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+    ],
+    1950: [
+        {
+            date: 1952,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1953,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1954,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1955,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1956,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1957,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
         
-    // ],
-    // 1960: [
-    //     {
-    //         date: 1962,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1963,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1964,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1965,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1966,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1967,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
+    ],
+    1960: [
+        {
+            date: 1962,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1963,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1964,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1965,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1966,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1967,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
         
-    // ],
-    // 1970: [
-    //     {
-    //         date: 1972,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1973,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1974,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-    //     },
-    //     {
-    //         date: 1975,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1976,
-    //         type: "picture",
-    //         url : "histoire-3.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
-    //     {
-    //         date: 1977,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
-    //     },
+    ],
+    1970: [
+        {
+            date: 1972,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1973,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1974,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+        },
+        {
+            date: 1975,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1976,
+            type: "picture",
+            url : "histoire-3.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
+        {
+            date: 1977,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet" ,
+        },
         
-    // ],  
+    ],  
 }
 
 
@@ -414,33 +414,7 @@ const addItems = (obj,scene,loader, sidebarContainer,camera, sidebarCursor,sideb
 
 }
 
-const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor,sidebar) => {
-    for(let i = 1; i < Object.values(obj).length; i++){
-        var year = document.createElement('div')
-        year.classList.add('history-sidebar-container-year')
-        // console.log(Object.keys(obj)[i])
-        year.textContent = Object.keys(obj)[i]
-        year.id = "annee-"+ Object.keys(obj)[i]
-        sidebarContainer.appendChild(year)
-        year.addEventListener('click', () => {
-            jumpTo(obj, Object.keys(obj)[i],camera, sidebarContainer, sidebarCursor)
-            updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
-            // TweenMax.to(document.querySelector('.intro'),0.5,{autoAlpha:0, scale: 5, onComplete: () =>{intro.style.display = 'none'}})
-            
 
-        })
-    }
-
-}
-
-
-const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
-
-    var goodone = Object.entries(obj).filter(entry => entry[0] == year)
-    // console.log(goodone[0][1].position)
-    // console.log(1 - goodone[0][1].position / 100)
-    TweenMax.to(camera.position,2  , { ease: Power4.easeOut, z: goodone[0][1].position + 4 , overwrite : "none"});
-}
 
 
 const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar) => {
@@ -452,18 +426,18 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
                 document.querySelector(`#annee-${Object.keys(dates)[j]}`).classList.remove('history-sidebar-container-year-active')
                 
             }
-            if(j == 0 && camera.position.z -5 > Object.values(dates)[j+1].position ){
+            if(j == 0 && destination -5 > Object.values(dates)[j+1].position ){
                 var value = document.querySelector('.history-sidebar-container-year-origin').getBoundingClientRect().height /2 + document.querySelector('.history-sidebar-container-year-origin').offsetTop
                 TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
                 document.querySelector('.history-sidebar-container-year-origin').classList.add('history-sidebar-container-year-active')
     
-            } else if(j != 0 && camera.position.z -5 < Object.values(dates)[j-1].position && camera.position.z -5 > Object.values(dates)[j].position){
+            } else if(j != 0 && destination -5 < Object.values(dates)[j-1].position && destination -5 > Object.values(dates)[j].position){
                 var value = document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).offsetTop
                 TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
                 document.querySelector(`#annee-${Object.keys(dates)[j-1]}`).classList.add('history-sidebar-container-year-active')
     
             }
-            if(camera.position.z - 5  < Object.values(dates)[Object.values(dates).length - 1].position ){
+            if(destination - 5  < Object.values(dates)[Object.values(dates).length - 1].position ){
                 var value = document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).getBoundingClientRect().height /2 + document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).offsetTop
                 TweenMax.to(sidebarCursor.style,1, { ease: Power0.ease, top: value + "px" , overwrite : "none"});
                 document.querySelector(`#annee-${Object.keys(dates)[Object.values(dates).length - 1]}`).classList.add('history-sidebar-container-year-active')
@@ -479,7 +453,6 @@ const updateTimeLinePosition = (sidebarContainer, sidebarCursor, camera,sidebar)
 
 
 
-const init = () => {
     const scene = new THREE.Scene()
     var loader = new THREE.FontLoader()
     var mouse = new THREE.Vector2();
@@ -509,12 +482,12 @@ const init = () => {
     let canScroll = true;
     let canBounce = true;
     let loadingComplete = false
+    let destination = 4
     const initialOrientation = true
 
 
     document.querySelector('.history-sidebar-container-year-origin').addEventListener('click', () => {
-        
-        TweenMax.to(camera.position,1, { ease: Power0.ease, z: 4 , overwrite : "none"});
+        destination = 4
     })
 
     // THREE.DefaultLoadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) {
@@ -571,41 +544,53 @@ const init = () => {
     }
 
     scene.fog = new THREE.Fog( 0x0C1015,2,10);
-    // TODO: Opti fog
 
 
     var start = {x:0,y:0};
 
+    const createTimeLine = (obj,sidebarContainer, camera, sidebarCursor,sidebar) => {
+        for(let i = 1; i < Object.values(obj).length; i++){
+            var year = document.createElement('div')
+            year.classList.add('history-sidebar-container-year')
+            // console.log(Object.keys(obj)[i])
+            year.textContent = Object.keys(obj)[i]
+            year.id = "annee-"+ Object.keys(obj)[i]
+            sidebarContainer.appendChild(year)
+            year.addEventListener('click', () => {
+                jumpTo(obj, Object.keys(obj)[i],camera, sidebarContainer, sidebarCursor)
+                updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
+                // TweenMax.to(document.querySelector('.intro'),0.5,{autoAlpha:0, scale: 5, onComplete: () =>{intro.style.display = 'none'}})
+                
+    
+            })
+        }
+    
+    }
+    
+    
+    const jumpTo = (obj, year, camera, sidebarContainer, sidebarCursor) => {
+    
+        var goodone = Object.entries(obj).filter(entry => entry[0] == year)
+        destination = goodone[0][1].position + 4
+        
+    }
 
     function onMouseWheel(event) {
-
+        console.log("hello")
+        
         event.preventDefault();
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar);
         
         if ( typeof event.deltaY !== 'undefined'){
             if(loadingComplete){
-
                 if(!picOpened){
     
                     TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
                         progressContainer.style.display = 'none'
                     }})
                     
-                    let move = scale(event.deltaY, -300, 300, -50, 50)
-                    console.log(event.deltaY)
-                    if(camera.position.z - move <= 4 && camera.position.z - move >= position + 5){
-                        
-                        // camera.position.z -= move;
-                        TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "all"});
-    
-    
-                    } 
-    
-                    // if(camera.position.z - move >= 4){
-                    //     // camera.position.z = 4;
-                    //     TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "all"});
-                    
-                    // } 
+                    let move = scale(event.deltaY, -300, 300, -2, 2)
+                        destination -=  move
                     
                 }else {
                     
@@ -627,6 +612,9 @@ const init = () => {
             }
         }else{
             if(loadingComplete){
+         event.preventDefault();
+
+                console.log(event.detail)
 
                 if(!picOpened){
     
@@ -635,23 +623,10 @@ const init = () => {
                     }})
                     
                     let move = scale(event.detail, -50, 50, -80, 80)
-    
-                    if(camera.position.z - move <= 4 && camera.position.z - move >= position + 5){
-                        
-                        // camera.position.z -= move;
-                        TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: "-=" + move, overwrite : "all"});
-    
-    
-                    } 
-    
-                    // if(camera.position.z - move >= 4){
-                    //     // camera.position.z = 4;
-                    //     TweenMax.to(camera.position,0.25, { ease: Power0.easeInOut, z: 4, delay: 0.25, overwrite : "all"});
-                    
-                    // } 
-                    
+                    destination -=  move
+
                 }else {
-                    
+                    console.log('ha')
                     if(canScroll){
                         if(event.detail > 0){
                             toggleImage(nextImage, 0)
@@ -707,16 +682,9 @@ const init = () => {
                 TweenMax.to(progressContainer,0.25,{opacity:0, onComplete:()=> {
                     progressContainer.style.display = 'none'
                 }})
-                let move = scale(offset.y, -300, 300, 10, -10)
+                let move = scale(offset.y, -300, 300, -1, 1)
 
-                if(camera.position.z - move <= 4 && camera.position.z - move >= position + 5){
-                    // camera.position.z -= move;
-                    TweenMax.to(camera.position,0.8, { ease: Power2.easeOut, z: "-=" + move, overwrite : "none"});
-                } 
-
-                // if(camera.position.z - move >= 4){
-                //      TweenMax.to(camera.position,1, { ease: Power0.easeInOut, z: 4, overwrite : "none"});
-                // } 
+                destination -=  move
                 
             }else {              
                 if(canScroll){
@@ -737,7 +705,6 @@ const init = () => {
     
     }
 
-    // TODO: Insta Scroll
     function onMouseMove( event ) {
 
         mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -789,7 +756,8 @@ const init = () => {
                 overlayContent.classList.remove('history-overlay-content-left')
             }
         }
-        TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:obj.position.x * 0.60, y:obj.position.y, z: obj.position.z + 1.5 });
+        destination = obj.position.z + 1.5
+        TweenMax.to(camera.position, 1, { ease: Power2.easeOut, x:obj.position.x * 0.60, y:obj.position.y});
         overlayContainer.style.display = 'block'
         TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, delay: 0.75, opacity:1, scale: 1});
         var toHide = scene.children.filter(mesh => mesh.uuid !== obj.uuid && mesh.type !== "PerspectiveCamera" )
@@ -869,13 +837,18 @@ const init = () => {
             }
          })
             
-        // TweenMax.to(scene.getObjectByName(picOpenedCoords.name).position, 0.5, { ease: Power2.easeInOut, x:picOpenedCoords.x, y:picOpenedCoords.y, z: picOpenedCoords.z });
-        TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:0, y:0, z: picOpenedCoords.z + 2 });
+        
+         // TweenMax.to(scene.getObjectByName(picOpenedCoords.name).position, 0.5, { ease: Power2.easeInOut, x:picOpenedCoords.x, y:picOpenedCoords.y, z: picOpenedCoords.z });
+        
+        TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:0, y:0});
+        destination = picOpenedCoords.z + 2
+
         TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut,  opacity:0, scale : 0.9, onComplete: () => overlayContainer.style.display = 'none'});
         picOpened = false
     }
 
     const toggleImage = (obj, way) => {
+
         picOpened = true
         picOpenedCoords.name = obj.name
         picOpenedCoords.x = obj.position.x
@@ -884,8 +857,8 @@ const init = () => {
         
         document.querySelector('body').style.cursor ="pointer";   
         
-        
-        TweenMax.to(camera.position, 1, { ease: Power2.easeInOut, x:obj.position.x * 0.60, y:obj.position.y, z: obj.position.z + 1.5 });
+        TweenMax.to(camera.position, 0.75, { ease: Power2.easeOut, x:obj.position.x * 0.60, y:obj.position.y });
+        destination = obj.position.z + 2
     
         if(way === 1 ){
                 TweenMax.to(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:0, scale: 0.8, onComplete : () => {
@@ -925,6 +898,7 @@ const init = () => {
                 TweenMax.fromTo(overlayContainer,0.5, {ease: Power2.easeInOut, opacity:0, scale: 0.8},{ease: Power2.easeInOut, opacity:1, scale: 1});
             }});
         }
+    
         
 
       
@@ -1020,18 +994,19 @@ const init = () => {
     // window.addEventListener('deviceorientation', (e) =>{handleOrientation(e,initialOrientation)}, false);
 
     
-    renderer.domElement.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
-    renderer.domElement.addEventListener( 'DOMMouseScroll', onMouseWheel, { passive: false } );
+    renderer.domElement.addEventListener( 'wheel', onMouseWheel, { passive: false } );
+    overlayContainer.addEventListener( 'wheel', onMouseWheel, { passive: false } );
+    intro.addEventListener( 'wheel', onMouseWheel, { passive: false } );
+
+
     renderer.domElement.addEventListener("touchstart", touchStart, { passive: false });
     renderer.domElement.addEventListener("touchend", touchEnd, { passive: false });
     renderer.domElement.addEventListener("touchmove", touchMove, { passive: false });
     renderer.domElement.addEventListener( 'mousemove', onMouseMove, false );
     renderer.domElement.addEventListener( 'click', handleClick, false );
     overlayContainer.addEventListener( 'click', handleClick, false );
-    overlayContainer.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     overlayContainer.addEventListener( 'mousemove', onMouseMove, false );
 
-    intro.addEventListener( 'mousewheel', onMouseWheel, { passive: false } );
     intro.addEventListener("touchstart", touchStart, { passive: false });
     intro.addEventListener("touchmove", touchMove, { passive: false });
     intro.addEventListener( 'mousemove', onMouseMove, false );
@@ -1050,6 +1025,17 @@ const init = () => {
         window.requestAnimationFrame(animate)
         renderer.render(scene, camera)
         updateTimeLinePosition(sidebarContainer, sidebarCursor, camera,sidebar)
+        if(Math.abs((camera.position.z - destination ))>0.5){
+            console.log(camera.position.z - destination)
+            if(destination >= 4 ){
+                destination = 4
+            }
+            if(destination <= position + 5){
+                destination = position + 5
+            }
+
+            camera.position.z -= (camera.position.z - destination ) /20
+        }
 
         if(camera.position.z >= -2){
             updateIntro(camera.position.z)
@@ -1074,10 +1060,6 @@ const init = () => {
 
 
 
-}
-
-
-init()
 
 
 
@@ -1087,18 +1069,10 @@ init()
 
 
 
-// var delta,memo_delta;
+
+
 // var isFirefox = (navigator.userAgent.indexOf("Firefox") != -1) ;
 
-
-
-// var handleWheel = function (event) 
-// {
-//  var e = window.event || event;
-//  delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-//  change_slide(delta,e.wheelDelta);
-//  e.preventDefault();
-// };
 
 
 
@@ -1118,4 +1092,5 @@ init()
 //   window.attachEvent("onmousewheel", scrollHandler);
 //  }
 // }
+
 // addMouseWheelEventListener(handleWheel);
