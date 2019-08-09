@@ -105,44 +105,44 @@ const dates = {
             content :"Ouverture d’une nouvelle usine à Mantes dont la direction technique est assurée par Maurice et Henri Lefèvre, gendres d’Henri Selmer. D’autres fabricants de saxophones, comme Dolnet et Evette-Scheaffer sont déjà implantés dans cette ville." ,
         },
     ],
-    // 1920: [
-    //     {
-    //         date: 1922,
-    //         type: "picture",
-    //         url : "histoire-4.jpg",
-    //         content :"Le 31 Décembre 1921 est présenté le premier saxophone Selmer (un alto), le \"Série 1922\" <br> Les premiers saxophones « Selmer » sortent sous la marque « Série 22 » <br> Le « Série 22 » fait place au « Modèle 22 ». L’ensemble de la famille est proposé, y compris le saxophone Tenor « C Melody ». <br> François Combelle, saxophoniste à la Garde Républicaine, est essayeur de saxophones pour Selmer (jusqu’à l’après guerre). <br> Selmer compte alors 50 luthiers qui fabriquent 30 saxophones / mois. " ,
-    //     },
-    //     {
-    //         date: 1923,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Extension des ateliers de Mantes : trois nouveaux ateliers sont construits : un pour les anches, deux pour les saxophones. L’atelier de la place Dancourt est conservé pour l’accueil des musiciens. <br> Selmer est présent au salon de la musique." ,
-    //     },
-    //     {
-    //         date: 1926,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Le nouveau logotype \"Henri SELMER Paris\" est adopté : la couronne de lauriers remplace la lyre. Ce logo original, gravé sur tous les instruments SELMER Paris, est toujours aujourd’hui le sceau de la marque originale « Henri SELMER Paris ».  <br> Sortie des Saxophones \"Modèle 26\". <br> Environ 136 ouvriers travaillent chez Selmer." ,
-    //     },
-    //     {
-    //         date: 1927,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Sortie de la clarinette métal. <br> Grand prix à l'Exposition Internationale de Genève, pour l'ensemble de la production." ,
-    //     },
-    //     {
-    //         date: 1928,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Création de la société \"H.Selmer & Cie\", sous forme S.A.R.L. <br> Sortie du “Modèle 28” <br> Le catalogue propose une large gamme d’instruments fabriqués par Selmer : la gamme clarinettes, bassons,... <br> ... au catalogue également : les gammes flûtes, saxophones, cors anglais, hautbois <br> Création de Selmer–Canada." ,
-    //     },
-    //     {
-    //         date: 1929,
-    //         type: "picture",
-    //         url : "histoire-6.jpg",
-    //         content :"Rachat des ateliers Adolphe Sax : Selmer Paris devient successeur du concept du saxophone. <br> Création de Selmer-Londres. <br> Présentation d'un modèle spécial de saxophone (n°9 909), avec douze améthystes pour l'exposition internationale de Barcelone. <br> Sortie du saxophone 28 New large bore." ,
-    //     },
-    // ],
+    1920: [
+        {
+            date: 1922,
+            type: "picture",
+            url : "histoire-4.jpg",
+            content :"Le 31 Décembre 1921 est présenté le premier saxophone Selmer (un alto), le \"Série 1922\" <br> Les premiers saxophones « Selmer » sortent sous la marque « Série 22 » <br> Le « Série 22 » fait place au « Modèle 22 ». L’ensemble de la famille est proposé, y compris le saxophone Tenor « C Melody ». <br> François Combelle, saxophoniste à la Garde Républicaine, est essayeur de saxophones pour Selmer (jusqu’à l’après guerre). <br> Selmer compte alors 50 luthiers qui fabriquent 30 saxophones / mois. " ,
+        },
+        {
+            date: 1923,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Extension des ateliers de Mantes : trois nouveaux ateliers sont construits : un pour les anches, deux pour les saxophones. L’atelier de la place Dancourt est conservé pour l’accueil des musiciens. <br> Selmer est présent au salon de la musique." ,
+        },
+        {
+            date: 1926,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Le nouveau logotype \"Henri SELMER Paris\" est adopté : la couronne de lauriers remplace la lyre. Ce logo original, gravé sur tous les instruments SELMER Paris, est toujours aujourd’hui le sceau de la marque originale « Henri SELMER Paris ».  <br> Sortie des Saxophones \"Modèle 26\". <br> Environ 136 ouvriers travaillent chez Selmer." ,
+        },
+        {
+            date: 1927,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Sortie de la clarinette métal. <br> Grand prix à l'Exposition Internationale de Genève, pour l'ensemble de la production." ,
+        },
+        {
+            date: 1928,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Création de la société \"H.Selmer & Cie\", sous forme S.A.R.L. <br> Sortie du “Modèle 28” <br> Le catalogue propose une large gamme d’instruments fabriqués par Selmer : la gamme clarinettes, bassons,... <br> ... au catalogue également : les gammes flûtes, saxophones, cors anglais, hautbois <br> Création de Selmer–Canada." ,
+        },
+        {
+            date: 1929,
+            type: "picture",
+            url : "histoire-6.jpg",
+            content :"Rachat des ateliers Adolphe Sax : Selmer Paris devient successeur du concept du saxophone. <br> Création de Selmer-Londres. <br> Présentation d'un modèle spécial de saxophone (n°9 909), avec douze améthystes pour l'exposition internationale de Barcelone. <br> Sortie du saxophone 28 New large bore." ,
+        },
+    ],
     // 1940: [
     //     {
     //         date: 1942,
